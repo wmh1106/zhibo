@@ -1,0 +1,16 @@
+<view class='registerWrapBg' wx:if="{{isShow}}">
+    <view class='registerWrap'>
+        <view class='registerHerder'>
+            <text>微信授权</text>
+        </view>
+        <view class='registerContent'>
+            <view class='registerTitel'>直播申请获得以下权限：</view>
+            <view class='registerList'>
+                <text>获取你的公开信息（昵称、头像等）</text>
+            </view>
+        </view>
+        <view class='registerFooter'>
+            <button plain='{{true}}' style='color:#4b9cf1;' bindgetuserinfo='getUserInfo' open-type="getUserInfo">去授权</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,36 @@
+.liveRome {
+    display: flex;
+    align-items: center;
+    height: 200rpx;
+    padding: 0 40rpx;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.liveRome image {
+    display: block;
+    flex-shrink: 1;
+    height: 140rpx;
+    width: 140rpx;
+    border-radius: 50%;
+    margin-right: 34rpx;
+}
+
+.liveRome .liveNews text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 450rpx;
+}
+
+.liveRome .liveNews text:nth-of-type(1) {
+    font-size: 32rpx;
+    font-weight: bold;
+    padding-bottom: 10rpx;
+}
+
+.liveRome .liveNews text:nth-of-type(2) {
+    font-size: 26rpx;
+    color: #999;
+}

@@ -1,0 +1,136 @@
+.header {
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    padding:0 30rpx 0 10rpx;
+}
+
+.header .homeTabHeader {
+    display: flex;
+    flex: 1;
+}
+
+.header .homeTabHeader view {
+    padding: 0 23rpx;
+    white-space: nowrap;
+    position: relative;
+    font-size: 30rpx;
+    color: #666666;
+}
+
+.header .homeTabHeader view .vm {
+    position: absolute;
+    left: 50%;
+    bottom: -10rpx;
+    width: 40rpx;
+    height: 6rpx;
+    border-radius: 3rpx;
+    transform: translateX(-50%);
+    background: transparent;
+    
+}
+.header .homeTabHeader view.active{
+    color: #000;
+}
+.header .homeTabHeader view.active .vm {
+    background: #4b9cf1;
+    box-shadow: 2rpx 1rpx 10rpx 2rpx #d0dbe6;
+}
+
+.header .search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 56rpx;
+    border-radius: 28rpx;
+    background: #ffffff;
+    padding:0 20rpx;
+}
+.header .search image{
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 5rpx;
+}
+.header .search text{
+    font-size:26rpx;
+    color:#c8c8c8;
+}
+
+
+/* tab 内容 */
+.tabContentSwiper{
+     width: 750rpx;
+    height: 400rpx;
+}
+.slide-image{
+    width: 750rpx;
+    height: 400rpx;
+}
+
+/* 列表 */
+.recommendWrap{
+    width: 100%;
+    padding:0 30rpx;
+}
+.recommendWrap .recommendHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+}
+.recommendWrap .recommendHeader .recommendTitle{
+    font-size: 32rpx;
+    color: #333;
+}
+.recommendWrap .recommendHeader .recommendTitle image{
+    width: 37rpx;
+    height: 37rpx;   
+}
+.recommendWrap .recommendHeader .recommendMore{
+    font-size: 26rpx;
+    color: #999;
+}
+.recommendWrap .recommendList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.recommendWrap .recommendList .listBox{
+
+}
+.recommendWrap .recommendList .listBox .showImgWrap{
+    position: relative;
+    width: 326rpx;
+    height: 240rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.recommendWrap .recommendList .listBox .showImgWrap image{
+    width: 326rpx;
+    height: 240rpx;
+}
+.recommendWrap .recommendList .listBox .showImgWrap .watch{
+    position: absolute;
+    right: 10rpx;
+    bottom:10rpx;
+    color: #ffffff;
+    font-size: 22rpx;
+    line-height: 30rpx;
+}
+
+.recommendWrap .recommendList .listBox .showImgWrap .watch image{
+    width: 25rpx;
+    height: 25rpx;
+    vertical-align: top;
+    margin-right: 10rpx;
+}
+.recommendWrap .recommendList .listBox .name{
+    font-size: 30rpx;
+    color: #636b70;
+    margin-top: 20rpx;
+}
+.recommendWrap .recommendList .listBox .other{
+    font-size: 22rpx;
+    color: #999;
+    margin-bottom: 30rpx;
+}

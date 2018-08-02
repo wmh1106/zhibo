@@ -1,0 +1,7 @@
+<view class='liveRome'>
+    <image src='/images/img/head.jpg' />
+    <view class='liveNews'>
+        <text>张三的直播间张三的直播间张三的直播间张三的直播间张三的直播间</text>
+        <text>张三的直播间介绍</text>
+    </view>
+</view>

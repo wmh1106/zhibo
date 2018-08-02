@@ -1,0 +1,41 @@
+.form{
+    padding:60rpx 30rpx 0;
+    background: #fff;
+    border-bottom:1px solid transparent;
+}
+.bindPhoneForm{
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    border-bottom: 1px solid #ddd;
+}
+.bindPhoneForm .phone{
+    width: 26rpx;
+    height: 32rpx;
+    margin:0 5rpx;
+}
+.bindPhoneForm .code{
+    width:32rpx;
+    height: 32rpx;
+}
+
+.bindPhoneForm input{
+    flex: 1;
+    margin-left:10rpx;
+}
+.bindPhoneForm .getCode{
+    width:238rpx;
+    text-align: center;
+    color: #469af4;
+    border-left:1px solid #ddd;
+}
+
+.bindPhoneForm.button{
+    margin: 50rpx 0;
+    border-bottom: none;
+}
+.bindPhoneForm button{
+    width: 100%;
+    color: #fff;
+    background: #469af4;
+}

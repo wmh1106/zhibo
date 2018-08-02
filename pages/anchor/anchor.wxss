@@ -1,0 +1,53 @@
+.anchorWrap {
+    padding: 30rpx 40rpx;
+    background: #4b9cf1;
+    display: flex;
+    min-height: 300rpx;
+}
+
+.anchorWrap .anchorHeaderImg {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+}
+
+.anchorWrap .anchorInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+    padding-left: 30rpx;
+}
+
+.anchorWrap .anchorInfo .anchorFriend {
+    font-size: 28rpx;
+}
+
+.anchorWrap .anchorInfo .anchorContent {
+    font-size: 28rpx;
+}
+
+.anchorButtonWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    height: 140rpx;
+}
+
+.anchorButtonWrap .anchorButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400rpx;
+    height: 90rpx;
+    background: #4b9cf1;
+    color: #fff;
+    border-radius: 45rpx;
+}
+
+.anchorButtonWrap .anchorButton text {
+    display: block;
+    padding: 0 5rpx;
+}

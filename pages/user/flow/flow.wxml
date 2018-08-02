@@ -1,0 +1,19 @@
+<form bindsubmit="formSubmit">
+
+    <view class="flowLink">
+        <input placeholder='请输入推流地址' name="flowLink" value="" />
+    </view>
+
+    <view class="changeType">
+        <radio-group bindchange="changeType" name="type">
+            <label wx:for="{{radio}}" wx:key="index">
+                <radio hidden value="{{item.value}}" checked='{{item.checked}}' />
+                <text class='{{item.checked ? "active" : ""}}'>{{item.name}}</text>
+            </label>
+        </radio-group>
+    </view>
+
+    <view class="endButtonWrap">
+        <button formType="submit">完成</button>
+    </view>
+</form>

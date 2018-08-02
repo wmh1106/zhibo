@@ -1,0 +1,89 @@
+<view class='header'>
+    <view class='homeTabHeader'>
+        <view class='active'><text>推荐</text> <view class="vm"></view>   </view>
+        <view class=''><text>最新</text> <view class="vm"></view></view>
+        <view class=''><text>热点</text> <view class="vm"></view></view>
+    </view>
+    <view class='search' bindtap='goToSearchPage'>
+        <image src='/images/icon/search.png' class='indexnavright_inputssimg' mode='widthFix'></image>
+        <text>苹果发布会</text>
+    </view>
+</view>
+
+<view class='tabContent'>
+    <swiper class='tabContentSwiper' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots='true'>
+        <block wx:for="{{imgUrls}}" wx:key="index">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+
+<view class='recommendWrap'>
+    <view class='recommendHeader'>
+        <view class='recommendTitle'>
+            <image src='/images/icon/recommend.png'></image>
+            <text>推荐直播</text>
+        </view>
+        <view class='recommendMore'>更多></view>
+    </view>
+
+    <view class='recommendList'>
+        <view class='listBox'>
+            <view class='showImgWrap'>
+                <image src='/images/img/demo.jpg' class='showImg' />
+                <view class='watch'>
+                    <image src='/images/icon/watch.png' />
+                    <text>1245</text>
+                </view>
+            </view>
+            <view class='name'>苹果秋季新品发布会</view>
+            <view class='other'>苹果发布会</view>
+        </view>
+        <view class='listBox'>
+            <view class='showImgWrap'>
+                <image src='/images/img/demo.jpg' class='showImg' />
+                <view class='watch'>
+                    <image src='/images/icon/watch.png' />
+                    <text>1245</text>
+                </view>
+            </view>
+            <view class='name'>苹果秋季新品发布会</view>
+            <view class='other'>苹果发布会</view>
+        </view>
+        <view class='listBox'>
+            <view class='showImgWrap'>
+                <image src='/images/img/demo.jpg' class='showImg' />
+                <view class='watch'>
+                    <image src='/images/icon/watch.png' />
+                    <text>1245</text>
+                </view>
+            </view>
+            <view class='name'>苹果秋季新品发布会</view>
+            <view class='other'>苹果发布会</view>
+        </view>
+        <view class='listBox'>
+            <view class='showImgWrap'>
+                <image src='/images/img/demo.jpg' class='showImg' />
+                <view class='watch'>
+                    <image src='/images/icon/watch.png' />
+                    <text>1245</text>
+                </view>
+            </view>
+            <view class='name'>苹果秋季新品发布会</view>
+            <view class='other'>苹果发布会</view>
+        </view>
+        <view class='listBox'>
+            <view class='showImgWrap'>
+                <image src='/images/img/demo.jpg' class='showImg' />
+                <view class='watch'>
+                    <image src='/images/icon/watch.png' />
+                    <text>1245</text>
+                </view>
+            </view>
+            <view class='name'>苹果秋季新品发布会</view>
+            <view class='other'>苹果发布会</view>
+        </view>
+    </view>
+</view>

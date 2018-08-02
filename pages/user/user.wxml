@@ -1,0 +1,30 @@
+<!-- <cmp_register></cmp_register> -->
+
+
+<view class='centerLogin'>
+    <image src='{{imgUrl.userHeadImg}}' class='myIcon'></image>
+    <view class='myName'>测试接口撒地方</view>
+</view>
+
+<view class='centerlist'>
+    <view class='centerfor' bindtap='goToLive'>
+        <image src='{{imgUrl.iconStreaming}}'></image>
+        <view class='centerforcenter'>关注直播间</view>
+        <image src='{{imgUrl.iconBack}}'></image>
+    </view>
+    <view class='centerfor' bindtap='goToHistory'>
+        <image src='{{imgUrl.iconHistory}}'></image>
+        <view class='centerforcenter'>历史浏览</view>
+        <image src='{{imgUrl.iconBack}}'></image>
+    </view>
+    <view class='centerfor' bindtap='goToFlow'>
+        <image src='{{imgUrl.iconPlugFlow}}'></image>
+        <view class='centerforcenter'>推流</view>
+        <image src='{{imgUrl.iconBack}}'></image>
+    </view>
+    <view class='centerfor' bindtap='goToPhone'>
+        <image src='{{imgUrl.iconBindPhone}}'></image>
+        <view class='centerforcenter'>绑定手机</view>
+        <image src='{{imgUrl.iconBack}}'></image>
+    </view>
+</view>

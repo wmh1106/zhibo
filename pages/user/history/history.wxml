@@ -1,0 +1,32 @@
+<view class='historyList'>
+    <view class='imgWrap'>
+        <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
+        <image class='cover' src='/images/img/history_img1.jpg' />
+    </view>
+    <view class='liveNews'>
+        <text>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
+        <text>09-29  20:00</text>
+    </view>
+</view>
+
+<!-- 删除 -->
+<view class='historyList'>
+    <view class='imgWrap'>
+        <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
+        <image class='cover' src='/images/img/history_img1.jpg' />
+    </view>
+    <view class='liveNews'>
+        <text>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
+        <text>09-29  20:00</text>
+    </view>
+</view>
+<view class='historyList'>
+    <view class='imgWrap'>
+        <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
+        <image class='cover' src='/images/img/history_img1.jpg' />
+    </view>
+    <view class='liveNews'>
+        <text>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
+        <text>09-29  20:00</text>
+    </view>
+</view>

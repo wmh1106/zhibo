@@ -1,0 +1,25 @@
+<view class='header'>
+    <view class='search'>
+        <image src='/images/icon/search.png' class='indexnavright_inputssimg' mode='widthFix'></image>
+        <input type='text' placeholder='请输入搜索关键词'></input>
+        <image class='clear' src='/images/icon/close.png' />
+    </view>
+    <view class='cancel'>取消</view>
+</view>
+
+<view class='searchResultList'>
+    <view class='resultImgWrap'>
+        <image class='show' src='/images/img/history_img1.jpg' />
+        <image class='type' src='/images/icon/flow_audio.png' />
+    </view>
+    <view class='resultTextWrap'>
+        <text class='row title'>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
+        <view class='row '>
+            <text>观看结束 | 即将直播</text>
+            <text>10观看</text>
+        </view>
+        <text class='row'>09-29  20:00</text>
+    </view>
+</view>
+
+<view class="noMoreData">无更多数据</view>

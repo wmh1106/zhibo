@@ -1,0 +1,6 @@
+<view class='bindPhoneWrap'>
+    <image src="/images/bg/bind_phone_bg.png" />
+    <text>已绑定的手机号</text>
+    <text>{{phone}}</text>
+    <view class='goToButton' bindtap="goToBindPhonePage">更改绑定手机号</view>
+</view>

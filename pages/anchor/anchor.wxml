@@ -1,0 +1,20 @@
+<view class='anchorWrap'>
+  <image src='/images/img/demo.jpg' class='anchorHeaderImg' />
+  <view class='anchorInfo'>
+    <view class='anchorTitle'>我的直播间</view>
+    <view class='anchorFriend'>粉丝：<text>0</text></view>
+    <view class='anchorContent'>
+      阿萨德飞机开始爱对方即可啊圣诞节疯狂了阿啥酒店客房啊速度快放假卡的房间卡三等奖
+    </view>
+  </view>
+</view>
+
+
+<view class='anchorButtonWrap'>
+  <view class='anchorButton'>
+    <text>+</text>
+    <text>新建话题</text>
+  </view>
+</view>
+
+
