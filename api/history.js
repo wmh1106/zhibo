@@ -1,4 +1,3 @@
-// 历史  list
 
 import {
 	HTTP
@@ -6,10 +5,14 @@ import {
 
 const http = new HTTP()
 
+// 我的 - 历史list
 const historyApi = () => {
 	return new Promise((resolve, reject) => {
 		http.request({
 			url: '/Collection/historyArray',
+			header: {
+				accesstoken: wx.getStorageSync('access_token')
+			},
 			success(res) {
 				// if(res.status === 1){
 				// 	resolve(res)

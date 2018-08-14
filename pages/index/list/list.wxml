@@ -1,4 +1,16 @@
 <cmp_register></cmp_register>
-<cmp_list list="{{list}}">
-	
-</cmp_list>
+
+
+<block wx:if="{{list.length !== 0}}" wx:for="{{list}}" wx:key="item.id">
+	<cmp_list list="{{item}}">
+		<view slot="row1" class='row1'>
+			<text>{{ item.state }}</text>
+			<text>{{ item.click }} 观看</text>
+		</view>	
+		<view slot="row2">
+			<text class='tiem'>开始时间：{{item.created}}</text>
+		</view>	
+	</cmp_list>
+</block>	
+
+<view wx:if="{{list.length === 0}}" class="noMoreData">无更多数据</view>

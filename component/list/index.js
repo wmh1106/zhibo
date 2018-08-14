@@ -1,17 +1,16 @@
-// component/list/index.js
 Component({
     options: {
         multipleSlots: true
     },
     properties: {
         list: {
-            type: Array
+            type: Object
         }
     },
     data: {
 
-    },
-    methods: {
+		imgAudio: '/images/icon/flow_audio.png',
+		imgVideo: '/images/icon/flow_video.png'
 
     }
 })

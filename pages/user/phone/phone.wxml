@@ -1,21 +1,21 @@
 <cmp_register></cmp_register>
 
 <view class='form'>
-<form bindsubmit="formSubmit">
-    <view class="bindPhoneForm">
-        <image class='phone' src="/images/icon/icon_phone.png"></image>
-        <input type="number" placeholder="请输入手机号" value="" confirm-type="done"></input>
-    </view>
-    <view class="bindPhoneForm">
-        <image class='code' src="/images/icon/icon_code.png"></image>
-        <input type="number" placeholder="请输入验证码" value="" confirm-type="done"></input>
-        <view class="getCode" bindtap="getCode"> 
-            {{isShowCountDown ? countDown : codeText }} 
+    <form bindsubmit="formSubmit">
+        <view class="bindPhoneForm">
+            <image class='phone' src="/images/icon/icon_phone.png"></image>
+            <input type="number" placeholder="请输入手机号" value="" confirm-type="done"></input>
         </view>
-    </view>
+        <view class="bindPhoneForm">
+            <image class='code' src="/images/icon/icon_code.png"></image>
+            <input type="number" placeholder="请输入验证码" value="" confirm-type="done"></input>
+            <view class="getCode" bindtap="getCode">
+                {{isShowCountDown ? countDown : codeText }}
+            </view>
+        </view>
 
-    <view class="bindPhoneForm button">
-        <button formType="submit">完成</button>
-    </view>
-</form>
+        <view class="bindPhoneForm button">
+            <button formType="submit">完成</button>
+        </view>
+    </form>
 </view>

@@ -1,1 +1,7 @@
-/* pages/index/list/list.wxss */
+.row1{
+	display: flex;
+	justify-content: space-between;
+}
+.row1 :nth-child(1){
+	color: #4b9cf1;
+}

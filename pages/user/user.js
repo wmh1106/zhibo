@@ -1,9 +1,4 @@
-
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
         imgUrl: {
             'iconHistory': '/images/icon/icon_history.png',
@@ -23,9 +18,10 @@ Page({
 		wx.getStorage({
 			key: 'userInfo',
 			success:  (res)=>{
+				console.log( res.data)
 				this.setData({
-					userHeadImg:res.data.avatarUrl,
-					nickName : res.data.nickName
+					userHeadImg: res.data.avatar_url,
+					nickName: res.data.nickname
 				})
 				
 			} 

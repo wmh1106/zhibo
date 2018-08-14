@@ -1,19 +1,21 @@
-<block wx:if="{{list.length !== 0}}" wx:for="{{list}}" wx:key="item.id">
-<view class='searchResultList' data-id="{{item.id}}">
+
+<view class='searchResultList' data-id="{{list.id}}">
     <view class='resultImgWrap'>
-        <image class='show' src="{{item.thumb}}" />
-        <image class='type' src='/images/icon/flow_audio.png' />
+	
+        <image class='show' src="{{list.thumb}}" />
+
+        <image wx:if="list.type === 0" class='type' src='{{imgVideo}}' />
+        <image wx:if="list.type === 1" class='type' src='{{imgAudio}}' />
+
     </view>
     <view class='resultTextWrap'>
-        <text class='row title'>{{item.title}}</text>
-        <view class='row'>
-            <slot name="row1"></slot>
-        </view>
-		<view class='row'>
-            <slot name="row2"></slot>
-        </view>
-    </view>
-</view>
-</block>	
 
-<view wx:if="{{searchData.length === 0}}" class="noMoreData">无更多数据</view>
+        <text class='row title'>{{list.title}}</text>
+
+        <view class='row'><slot name="row1"></slot></view>
+		
+		<view class='row'><slot name="row2"></slot></view>
+    
+	</view>
+</view>
+

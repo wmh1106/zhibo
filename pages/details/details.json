@@ -1,6 +1,7 @@
 {
 	"enablePullDownRefresh": true,
 	"usingComponents": {
-		"cmp_register": "/component/register/index"
+		"cmp_register": "/component/register/index",
+		"cmp_list": "/component/list/index"
 	}
 }

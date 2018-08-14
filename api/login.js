@@ -48,7 +48,18 @@ const userAgreeLoginApi = function(option) {
 				userInfo: option.userInfo
             },
             success(res) {
-				wx.setStorageSync('access_token', res.data.access_token)
+				wx.setStorage({
+					key: "access_token",
+					data: res.access_token
+				})
+				wx.setStorage({
+					key: "userInfo",
+					data: {
+						avatar_url: res.avatar_url,
+						nickname: res.nickname
+					}
+				})
+				
                 return resolve(res)
             }
         });
@@ -69,13 +80,6 @@ const login = function() {
 			option.userInfo = result.userInfo
 			return userAgreeLoginApi(option)
         })
-		.catch((error)=>{
-			console.log(error)	
-			return {
-				...error,
-				fail:true
-			}
-		})
 }
 
 // 判断用户是否 授权 && 登录

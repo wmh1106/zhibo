@@ -1,4 +1,5 @@
 {
+	"enablePullDownRefresh":true,
 	"navigationBarTitleText": "直播",
 	"usingComponents": {
 		"cmp_register": "/component/register/index",

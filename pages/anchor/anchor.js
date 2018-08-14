@@ -1,8 +1,7 @@
 import {
-    playListData
-} from '../../api/playList.js'
+	searchList
+} from '../../api/searchList.js'
 
-import { formatTime } from '../../utils/util.js'
 
 Page({
 	
@@ -11,7 +10,7 @@ Page({
     },
 
 	onReady(){
-		playListData().then((result)=>{
+		searchList().then((result)=>{
 			let res = []
 			res = result.data.map(item => {
 				return {

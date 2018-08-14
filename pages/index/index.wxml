@@ -1,9 +1,9 @@
 <cmp_register></cmp_register>
 
-
+<!-- 按钮 -->
 <view class='header'>
     <view class='homeTabHeader'>
-        <view bind:tap="goToList" data-type="put" class='active'>
+        <view bind:tap="goToList" data-type="put" class=''>
             <text>推荐</text>
             <view class="vm"></view>
         </view>
@@ -22,6 +22,7 @@
     </view>
 </view>
 
+<!-- 轮播图 -->
 <view class='tabContent'>
     <swiper class='tabContentSwiper' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots='true'>
         <block wx:for="{{imgUrls}}" wx:key="index">
@@ -32,18 +33,22 @@
     </swiper>
 </view>
 
+<!-- 推荐列表 -->
 <view class='recommendWrap'>
     <view class='recommendHeader'>
         <view class='recommendTitle'>
             <image src='/images/icon/recommend.png'></image>
             <text>推荐直播</text>
         </view>
-        <view class='recommendMore'>更多></view>
+        <view class='recommendMore' bind:tap="goToList" data-type="put">
+			<text>更多</text>
+			<i class="iconfont i-go"></i>
+		</view>
     </view>
 
     <view class='recommendList'>
         <block wx:for="{{putlist}}" wx:key="{{item.id}}">
-            <view class='listBox' data-id="{{item.id}}">
+            <view class='listBox' data-id="{{item.id}}" bind:tap="goToDetails">
                 <view class='showImgWrap'>
                     <image src='{{item.thumb}}' class='showImg' />
                     <view class='watch'>

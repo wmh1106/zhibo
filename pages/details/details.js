@@ -1,72 +1,47 @@
-// pages/index/details/details.js
+import {
+	details
+} from '../../api/details.js'
+import {
+	live
+} from '../../api/live.js'
+
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+		id:-1,
+		// tab 索引
+		currentTab: 0,
+		// 主播 list
+		list:[],
+		// 其他信息
+		info:{}
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function(options) {
+		details(options.id).then(res=>{
+			console.log(res)
+			this.setData({
+				list: res.datas,
+				info: res.info,
+				id:options.id
+			})
 
+		}).catch(error=>{
+			console.log(error)
+		})
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
     onReady: function() {
-
+		
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function() {
-
-    },
-    statechange(e) {
-        console.log('live-player code:', e.detail.code)
-    },
-    error(e) {
-        console.error('live-player error:', e.detail.errMsg)
+	clickTab(event){
+		const current = parseInt(event.currentTarget.dataset.current)
+		console.log(current)
+		this.setData({
+			currentTab: current
+		})
+	},
+	handleLive(){
+		live(this.data.id)
+	},
+    onShareAppMessage: function(event) {
+		console.log(event)
     }
 })

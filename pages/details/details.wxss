@@ -51,12 +51,12 @@ live-player{
 .detailsTabHeader .tab .tabButton{
 	height: 100rpx;
 	line-height: 100rpx;
+	padding:0 20rpx;
 	border-bottom: 4px solid transparent;
 }
 
 .detailsTabHeader .tab .tabButton.active{
 	border-color: #4b9cf1;
-	padding:0 20rpx;
 }
 .detailsTabHeader .like{
 	display: flex;
@@ -80,8 +80,9 @@ live-player{
 
 
 
-/* 主播 */
+/* 选项卡 - 主播 */
 .liveRome {
+	margin-top:10rpx;
     display: flex;
     align-items: center;
     height: 200rpx;
@@ -118,8 +119,16 @@ live-player{
     color: #999;
 }
 
+/* tab - 主播 - list */
+.row1{
+	display: flex;
+	justify-content: space-between;
+}
+.row1 :nth-child(1){
+	color: #4b9cf1;
+}
 
-/* 简介 */
+/* tab - 简介 */
 .info{
 	background: #fff;
 	padding: 20rpx 40rpx;

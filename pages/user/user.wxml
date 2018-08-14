@@ -10,21 +10,21 @@
     <view class='centerfor' bindtap='goToLive'>
         <image src='{{imgUrl.iconStreaming}}'></image>
         <view class='centerforcenter'>关注直播间</view>
-        <image src='{{imgUrl.iconBack}}'></image>
+		<i class="iconfont i-go"></i>
     </view>
     <view class='centerfor' bindtap='goToHistory'>
         <image src='{{imgUrl.iconHistory}}'></image>
         <view class='centerforcenter'>历史浏览</view>
-        <image src='{{imgUrl.iconBack}}'></image>
+        <i class="iconfont i-go"></i>
     </view>
     <view class='centerfor' bindtap='goToFlow'>
         <image src='{{imgUrl.iconPlugFlow}}'></image>
         <view class='centerforcenter'>推流</view>
-        <image src='{{imgUrl.iconBack}}'></image>
+        <i class="iconfont i-go"></i>
     </view>
     <view class='centerfor' bindtap='goToPhone'>
         <image src='{{imgUrl.iconBindPhone}}'></image>
         <view class='centerforcenter'>绑定手机</view>
-        <image src='{{imgUrl.iconBack}}'></image>
+        <i class="iconfont i-go"></i>
     </view>
 </view>

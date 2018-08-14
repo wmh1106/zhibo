@@ -76,6 +76,7 @@
 .recommendWrap {
     width: 100%;
     padding: 0 30rpx;
+	background: #fff;
 }
 
 .recommendWrap .recommendHeader {

@@ -1,9 +1,11 @@
 {
     "pages": [
-		"pages/details/details",
 		"pages/index/index",
+		"pages/index/list/list",
+
 		"pages/search/search",
-"pages/index/list/list",
+		"pages/details/details",
+		
 		
         
         "pages/anchor/anchor",
@@ -20,7 +22,7 @@
         
     ],
     "window": {
-        "backgroundColor": "#4b9cf1",
+        "backgroundColor": "#f1f1f1",
         "navigationBarBackgroundColor": "#4b9cf1",
         "navigationBarTitleText": "直播",
         "navigationBarTextStyle": "white"

@@ -1,16 +1,14 @@
 import {
-	playListData
-} from '../../api/playList.js'
-
-import { formatTime } from '../../utils/util.js'
+	searchList
+} from '../../api/searchList.js'
 
 Page({
     
 	data: {
 		searchKey:'',
-        searchData: []
+		page:1,
+        list: []
     },
-
     clearText() {
 		this.setData({
 			searchKey:''
@@ -23,17 +21,17 @@ Page({
 		})
 	},
 
+	handleValue(event){
+		this.setData({
+			searchKey : event.detail.value
+		})
+	},
+
 	searchContent(){
-		playListData().then((result) => {
-			let res = []
-			res = result.data.map(item => {
-				return {
-					...item,
-					created: formatTime(item.created)
-				}
-			})
+		searchList(this.data.searchKey, this.data.page).then((result) => {
+			console.log(result)
 			this.setData({
-				searchData: res
+				list: result.data
 			})
 
 		})

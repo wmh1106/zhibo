@@ -26,16 +26,14 @@ Component({
     methods: {
         getUserInfo(e) {
             login().then(res => {
-                if (res.fail) {
-                    this.setData({
-                        showRegister: true
-                    })
-                } else if (res.code === 0) {
-                    this.setData({
-                        showRegister: false
-                    })
-                }
-            })
+				this.setData({
+					showRegister: false
+				})
+			}).catch(error=>{
+				this.setData({
+					showRegister: true
+				})
+			})
         }
     }
 })

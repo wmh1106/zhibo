@@ -23,7 +23,6 @@ class HTTP {
                 ...header
             },
             success:  (res)=> {
-				console.log('HTTP,CLASS',res)
 				// 先判断小程序返回的状态
                 const {
                     statusCode,

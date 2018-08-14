@@ -1,6 +1,6 @@
 import {
     likeListData
-} from '../../../api/live.js'
+} from '../../../api/liveList.js'
 
 
 Page({

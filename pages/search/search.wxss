@@ -43,58 +43,14 @@
 }
 
 /* 搜索结果 */
-
-.searchResultList {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 55rpx 35rpx;
-    border-bottom: 1px solid #ddd;
-    background: #ffffff;
+.row1{
+	display: flex;
+	justify-content: space-between;
+}
+.row1 :nth-child(1){
+	color: #4b9cf1;
 }
 
-.searchResultList .resultImgWrap {
-    position: relative;
-    width: 240rpx;
-    height: 160rpx;
-    flex-shrink: 1;
-    margin-right: 35rpx;
-}
-
-.searchResultList .resultImgWrap .show {
-    width: 100%;
-    height: 100%;
-    border-radius: 10rpx;
-}
-
-.searchResultList .resultImgWrap .type {
-    position: absolute;
-    top: 10rpx;
-    left: 10rpx;
-    width: 32rpx;
-    height: 32rpx;
-}
-
-.searchResultList .resultTextWrap {
-    height: 160rpx;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.searchResultList .resultTextWrap .row {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 450rpx;
-    font-size: 26rpx;
-    color: #999;
-}
-
-.searchResultList .resultTextWrap .row.title {
-    font-size: 34rpx;
-}
 .noMoreData{
     line-height: 60rpx;
     text-align: center;
