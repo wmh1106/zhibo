@@ -1,1 +1,0 @@
-export const host = 'http://live.wxstores.cn/Api';
