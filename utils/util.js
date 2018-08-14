@@ -1,21 +1,19 @@
-const formatTime = date => {
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1
-    const day = date.getDate()
-    const hour = date.getHours()
-    const minute = date.getMinutes()
-    const second = date.getSeconds()
+// 时间戳 => 时间
+const formatTime = num => {
+	let date = new Date(num*1000)
+	let year = date.getFullYear()
+	let month = date.getMonth() + 1
+	let day = date.getDate()
+	let hour = date.getHours()
+	let minute = date.getMinutes()
+	let second = date.getSeconds()
 
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+	return `${formatNumber(year)}年${formatNumber(month)}月${formatNumber(day)}日 ${formatNumber(hour)}:${formatNumber(minute)}:${formatNumber(second)}`
 }
 
 const formatNumber = n => {
     n = n.toString()
-    return n[1] ? n : '0' +     formatTime
+    return n[1] ? n : '0'+n
 }
 
-// const theCountDown = ()=>{
-//     setTimeout(() => {
-//         theCountDown()
-//     }, 1000)
-// }
+export { formatTime}

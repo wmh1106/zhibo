@@ -1,5 +1,3 @@
-/* template/loginRegister.wxss */
-
 .registerWrapBg {
     position: fixed;
     top: 0;

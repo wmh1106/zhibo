@@ -1,0 +1,43 @@
+<cmp_register></cmp_register>
+
+<view class='livePlayer'>
+    <!-- live,RTC -->
+    <live-player src="https://domain/pull_stream" mode="RTC" autoplay bindstatechange="statechange" binderror="error">
+    </live-player>
+    <view class='numberButton'>1234</view>
+    <view class='shareButton'>
+        <i class="iconfont i-share"></i>
+    </view>
+</view>
+
+<view class='detailsTabHeader'>
+    <view class='tab'>
+        <view class='tabButton active'>互动</view>
+        <view class='tabButton'>主播</view>
+        <view class='tabButton'>介绍</view>
+    </view>
+
+    <view class='like'>
+        <i class="iconfont i-add"></i>
+        <text>关注</text>
+    </view>
+</view>
+
+<view class='detailsTabBody'>
+    <view class='item'>聊天</view>
+    <view class='item host'>
+        <view bind:tap="goToRoom" class='liveRome' data-type_id="{{item.type_id}}" data-room_id='{{item.room_id}}' data-user_id='{{item.userId}}' data-created='{{item.created}}'>
+            <image src='/image/bg/dlimg.jpg' />
+            <view class='liveNews'>
+                <text>2018苹果发布会2018苹果发布会2018苹果发布会</text>
+                <text>2018苹果发布会2018苹果发布会2018苹果发布会</text>
+            </view>
+        </view>
+    </view>
+    <view class='item info'>
+        <view class='title'>2018苹果发布会2018苹果发布会2018苹果发布会</view>
+        <view class='content'>
+            2018苹果发布会2018苹果发布会2018苹果发布会 2018苹果发布会2018苹果发布会2018苹果发布会 2018苹果发布会2018苹果发布会2018苹果发布会 2018苹果发布会2018苹果发布会2018苹果发布会 2018苹果发布会2018苹果发布会2018苹果发布会2018苹果发布会2018苹果发布会2018苹果发布会
+        </view>
+    </view>
+</view>

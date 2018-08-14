@@ -1,13 +1,17 @@
 {
     "pages": [
-
+		"pages/details/details",
+		"pages/index/index",
+		"pages/search/search",
+"pages/index/list/list",
+		
+        
         "pages/anchor/anchor",
-
-
-        "pages/index/index",
-        "pages/index/search/search",
-
-        "pages/user/user",
+        "pages/anchor/createTopic/createTopic",
+        "pages/anchor/createTopicTitle/createTopicTitle",
+        "pages/anchor/createTopicInfo/createTopicInfo",
+		
+		"pages/user/user",
         "pages/user/flow/flow",
         "pages/user/history/history",
         "pages/user/changeBindPhone/changeBindPhone",

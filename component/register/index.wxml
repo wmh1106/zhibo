@@ -1,4 +1,4 @@
-<view class='registerWrapBg' wx:if="{{isShow}}">
+<view class='registerWrapBg' wx:if="{{showRegister}}">
     <view class='registerWrap'>
         <view class='registerHerder'>
             <text>微信授权</text>

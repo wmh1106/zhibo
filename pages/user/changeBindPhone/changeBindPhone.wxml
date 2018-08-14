@@ -1,3 +1,5 @@
+<cmp_register></cmp_register>
+
 <view class='bindPhoneWrap'>
     <image src="/images/bg/bind_phone_bg.png" />
     <text>已绑定的手机号</text>

@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "直播话题",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"cmp_register": "/component/register/index"
+	}
+}

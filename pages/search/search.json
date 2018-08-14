@@ -1,0 +1,5 @@
+{
+	"usingComponents": {
+		"cmp_register": "/component/register/index"
+	}
+}

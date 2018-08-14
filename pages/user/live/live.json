@@ -1,4 +1,7 @@
 {
-    "enablePullDownRefresh": true,
-    "navigationBarTitleText": "关注直播间"
+    "navigationBarTitleText": "关注直播间",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"cmp_register": "/component/register/index"
+	}
 }

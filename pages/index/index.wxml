@@ -1,8 +1,20 @@
+<cmp_register></cmp_register>
+
+
 <view class='header'>
     <view class='homeTabHeader'>
-        <view class='active'><text>推荐</text> <view class="vm"></view>   </view>
-        <view class=''><text>最新</text> <view class="vm"></view></view>
-        <view class=''><text>热点</text> <view class="vm"></view></view>
+        <view bind:tap="goToList" data-type="put" class='active'>
+            <text>推荐</text>
+            <view class="vm"></view>
+        </view>
+        <view bind:tap="goToList" data-type="new" class=''>
+            <text>最新</text>
+            <view class="vm"></view>
+        </view>
+        <view bind:tap="goToList" data-type="hot" class=''>
+            <text>热点</text>
+            <view class="vm"></view>
+        </view>
     </view>
     <view class='search' bindtap='goToSearchPage'>
         <image src='/images/icon/search.png' class='indexnavright_inputssimg' mode='widthFix'></image>
@@ -14,7 +26,7 @@
     <swiper class='tabContentSwiper' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots='true'>
         <block wx:for="{{imgUrls}}" wx:key="index">
             <swiper-item>
-                <image src="{{item}}" class="slide-image" />
+                <image src="{{item.csl_thumb}}" class="slide-image" />
             </swiper-item>
         </block>
     </swiper>
@@ -30,60 +42,18 @@
     </view>
 
     <view class='recommendList'>
-        <view class='listBox'>
-            <view class='showImgWrap'>
-                <image src='/images/img/demo.jpg' class='showImg' />
-                <view class='watch'>
-                    <image src='/images/icon/watch.png' />
-                    <text>1245</text>
+        <block wx:for="{{putlist}}" wx:key="{{item.id}}">
+            <view class='listBox' data-id="{{item.id}}">
+                <view class='showImgWrap'>
+                    <image src='{{item.thumb}}' class='showImg' />
+                    <view class='watch'>
+                        <image src='/images/icon/watch.png' />
+                        <text>{{item.click}}</text>
+                    </view>
                 </view>
+                <view class='name'>{{item.title}}</view>
+                <view class='other'>{{item.content}}</view>
             </view>
-            <view class='name'>苹果秋季新品发布会</view>
-            <view class='other'>苹果发布会</view>
-        </view>
-        <view class='listBox'>
-            <view class='showImgWrap'>
-                <image src='/images/img/demo.jpg' class='showImg' />
-                <view class='watch'>
-                    <image src='/images/icon/watch.png' />
-                    <text>1245</text>
-                </view>
-            </view>
-            <view class='name'>苹果秋季新品发布会</view>
-            <view class='other'>苹果发布会</view>
-        </view>
-        <view class='listBox'>
-            <view class='showImgWrap'>
-                <image src='/images/img/demo.jpg' class='showImg' />
-                <view class='watch'>
-                    <image src='/images/icon/watch.png' />
-                    <text>1245</text>
-                </view>
-            </view>
-            <view class='name'>苹果秋季新品发布会</view>
-            <view class='other'>苹果发布会</view>
-        </view>
-        <view class='listBox'>
-            <view class='showImgWrap'>
-                <image src='/images/img/demo.jpg' class='showImg' />
-                <view class='watch'>
-                    <image src='/images/icon/watch.png' />
-                    <text>1245</text>
-                </view>
-            </view>
-            <view class='name'>苹果秋季新品发布会</view>
-            <view class='other'>苹果发布会</view>
-        </view>
-        <view class='listBox'>
-            <view class='showImgWrap'>
-                <image src='/images/img/demo.jpg' class='showImg' />
-                <view class='watch'>
-                    <image src='/images/icon/watch.png' />
-                    <text>1245</text>
-                </view>
-            </view>
-            <view class='name'>苹果秋季新品发布会</view>
-            <view class='other'>苹果发布会</view>
-        </view>
+        </block>
     </view>
 </view>

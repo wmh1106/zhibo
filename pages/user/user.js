@@ -1,3 +1,4 @@
+
 Page({
 
     /**
@@ -9,22 +10,26 @@ Page({
             'iconStreaming': '/images/icon/icon_streaming.png',
             'iconBindPhone': '/images/icon/icon_bind_phone.png',
             'iconPlugFlow': '/images/icon/icon_plug_flow.png',
-            'iconBack': '/images/icon/icon_back.png',
-            'userHeadImg': '/images/img/demo.jpg'
-        }
+            'iconBack': '/images/icon/icon_back.png'
+        },
+		userHeadImg: '/images/img/demo.jpg',
+		nickName : '用户名称'
     },
 
-    onLoad: function(options) {
-        
-    },
+    onLoad: function(options) {},
 
 
     onReady: function() {
-        wx.getUserInfo({
-            success(res){
-                console.log(res)
-            }
-        })
+		wx.getStorage({
+			key: 'userInfo',
+			success:  (res)=>{
+				this.setData({
+					userHeadImg:res.data.avatarUrl,
+					nickName : res.data.nickName
+				})
+				
+			} 
+		})
     },
 
     goToLive: function() {
@@ -43,15 +48,15 @@ Page({
         })
     },
     goToPhone: function() {
-        if('有手机号'){
+        if ('有手机号') {
             wx.navigateTo({
-                url: './changeBindPhone/changeBindPhone?phone='+15000766043
+                url: './changeBindPhone/changeBindPhone?phone=' + 15000766043
             })
-        }else if('没有手机号'){
+        } else if ('没有手机号') {
             wx.navigateTo({
                 url: './phone/phone'
             })
         }
-        
+
     }
 })

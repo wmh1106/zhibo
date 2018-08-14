@@ -1,1 +1,5 @@
-{}
+{
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"cmp_register": "/component/register/index"
+	}}

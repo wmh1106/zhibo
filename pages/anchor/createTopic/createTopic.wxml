@@ -1,0 +1,33 @@
+<cmp_register></cmp_register>
+<view class='settingCoverBg' bind:tap="uploadFile">
+    <image wx:if="{{ tempFilePaths === ''}}" class='icon' src='/images/icon/photo.png' />
+    <text wx:if="{{ tempFilePaths === ''}}">设置直播封面</text>
+    <image mode="aspectFill" wx:if="{{ tempFilePaths !== ''}}" class='cover' src='{{tempFilePaths}}' />
+</view>
+
+<view class='settingWrap'>
+    <view class='settingItem' bind:tap="goToTopicTitle">
+        <text> 本期话题</text>
+        <image src='/images/icon/icon_back.png' />
+    </view>
+
+    <view class='settingItem' bind:tap="goToTopicInfo">
+        <text> 直播介绍</text>
+        <image src='/images/icon/icon_back.png' />
+    </view>
+
+    <view class='settingItem' bind:tap="selectTime">
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+            <view class="picker">
+                <text> 选择时间</text>
+                <view>
+                    {{time}}
+                    <image src='/images/icon/icon_back.png' />
+                </view>
+            </view>
+        </picker>
+    </view>
+
+</view>
+
+<view bind:tap="createTopic" class='createTopicButton'>创建</view>

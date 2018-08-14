@@ -1,0 +1,5 @@
+<cmp_register></cmp_register>
+<view class='writeInfo'>
+    <textarea bindinput="changeText" auto-focus="{{true}}" maxlength="140" placeholder="请填写直播介绍" value='{{topicTitle}}' />
+    <view bind:tap="createTitle" class="endButton">完成</view>
+</view>

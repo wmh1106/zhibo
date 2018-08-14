@@ -1,11 +1,7 @@
-var _getCurrentPage = function() {
-    var pages = getCurrentPages();
-    return pages[pages.length - 1];
-}
-
-var op_id = '';
-
 App({
+	data:{
+		
+	},
 	onLaunch: function () {
 
 	},

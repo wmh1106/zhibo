@@ -1,32 +1,53 @@
-//index.js
-var config = require('../../config.js');
-var app = require('../../app.js');
-//获取应用实例
+import {HTTP} from '../../utils/HTTP.js'
+
+const http = new HTTP()
+
 Page({
-  data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    autoplay: false,
-    interval: 5000,
-    duration: 1000
-  },
-  //事件处理函数
-  bindViewTap(){
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function() {
+    data: {
+        imgUrls: [],
+		putlist:[],
+        autoplay: false,
+        interval: 5000,
+        duration: 1000
+    },
+	onReady(){
+		this.getSwiperImage()
+		this.getIndexPutList()
+	},
 
-  },
-  getUserInfo: app.getUserInfo,
 
-    goToSearchPage(){
+    goToSearchPage() {
         wx.navigateTo({
             url: './search/search'
         })
-    }
+    },
+	goToList(event){
+		console.log(event.currentTarget.dataset.type)
+		wx.navigateTo({
+			url: './list/list?order=' + event.currentTarget.dataset.type
+		})
+	},
+
+	getSwiperImage(){
+		http.request({
+			url:'/Index/carousel',
+			success:(res)=>{
+				console.log(res)
+				this.setData({
+					imgUrls : res
+				})
+			}
+		})
+	},
+	getIndexPutList(){
+		http.request({
+			url: '/Index/putlive',
+			success: (res) => {
+				console.log(res)
+				this.setData({
+					putlist: res
+				})
+			}
+		})
+	}
 })

@@ -2,7 +2,7 @@
     height: 90rpx;
     display: flex;
     align-items: center;
-    padding:0 30rpx 0 10rpx;
+    padding: 0 30rpx 0 10rpx;
 }
 
 .header .homeTabHeader {
@@ -15,7 +15,7 @@
     white-space: nowrap;
     position: relative;
     font-size: 30rpx;
-    color: #666666;
+    color: #666;
 }
 
 .header .homeTabHeader view .vm {
@@ -27,11 +27,12 @@
     border-radius: 3rpx;
     transform: translateX(-50%);
     background: transparent;
-    
 }
-.header .homeTabHeader view.active{
+
+.header .homeTabHeader view.active {
     color: #000;
 }
+
 .header .homeTabHeader view.active .vm {
     background: #4b9cf1;
     box-shadow: 2rpx 1rpx 10rpx 2rpx #d0dbe6;
@@ -43,94 +44,119 @@
     align-items: center;
     height: 56rpx;
     border-radius: 28rpx;
-    background: #ffffff;
-    padding:0 20rpx;
+    background: #fff;
+    padding: 0 20rpx;
 }
-.header .search image{
+
+.header .search image {
     width: 28rpx;
     height: 28rpx;
     margin-right: 5rpx;
 }
-.header .search text{
-    font-size:26rpx;
-    color:#c8c8c8;
-}
 
+.header .search text {
+    font-size: 26rpx;
+    color: #c8c8c8;
+}
 
 /* tab 内容 */
-.tabContentSwiper{
-     width: 750rpx;
+
+.tabContentSwiper {
+    width: 750rpx;
     height: 400rpx;
 }
-.slide-image{
+
+.slide-image {
     width: 750rpx;
     height: 400rpx;
 }
 
 /* 列表 */
-.recommendWrap{
+
+.recommendWrap {
     width: 100%;
-    padding:0 30rpx;
+    padding: 0 30rpx;
 }
-.recommendWrap .recommendHeader{
+
+.recommendWrap .recommendHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100rpx;
 }
-.recommendWrap .recommendHeader .recommendTitle{
+
+.recommendWrap .recommendHeader .recommendTitle {
     font-size: 32rpx;
     color: #333;
 }
-.recommendWrap .recommendHeader .recommendTitle image{
+
+.recommendWrap .recommendHeader .recommendTitle image {
     width: 37rpx;
-    height: 37rpx;   
+    height: 37rpx;
 }
-.recommendWrap .recommendHeader .recommendMore{
+
+.recommendWrap .recommendHeader .recommendMore {
     font-size: 26rpx;
     color: #999;
 }
-.recommendWrap .recommendList{
+
+.recommendWrap .recommendList {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.recommendWrap .recommendList .listBox{
 
+.recommendWrap .recommendList .listBox {
+    width: 326rpx;
 }
-.recommendWrap .recommendList .listBox .showImgWrap{
+
+.recommendWrap .recommendList .listBox .showImgWrap {
     position: relative;
     width: 326rpx;
     height: 240rpx;
     border-radius: 10rpx;
     overflow: hidden;
 }
-.recommendWrap .recommendList .listBox .showImgWrap image{
+
+.recommendWrap .recommendList .listBox .showImgWrap image {
     width: 326rpx;
     height: 240rpx;
 }
-.recommendWrap .recommendList .listBox .showImgWrap .watch{
+
+.recommendWrap .recommendList .listBox .showImgWrap .watch {
     position: absolute;
     right: 10rpx;
-    bottom:10rpx;
-    color: #ffffff;
+    bottom: 10rpx;
+    color: #fff;
     font-size: 22rpx;
     line-height: 30rpx;
 }
 
-.recommendWrap .recommendList .listBox .showImgWrap .watch image{
+.recommendWrap .recommendList .listBox .showImgWrap .watch image {
     width: 25rpx;
     height: 25rpx;
     vertical-align: top;
     margin-right: 10rpx;
 }
-.recommendWrap .recommendList .listBox .name{
+
+.recommendWrap .recommendList .listBox .name {
     font-size: 30rpx;
     color: #636b70;
     margin-top: 20rpx;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }
-.recommendWrap .recommendList .listBox .other{
+
+.recommendWrap .recommendList .listBox .other {
     font-size: 22rpx;
     color: #999;
     margin-bottom: 30rpx;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }

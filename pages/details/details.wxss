@@ -1,0 +1,138 @@
+live-player{
+	vertical-align: top;
+	width: 750rpx;
+	height: 400rpx;
+}
+.livePlayer {
+	position: relative;
+}
+.livePlayer .numberButton{
+	position: absolute;
+	right: 32rpx;
+	top: 18rpx;
+	border-radius: 16rpx;
+	color: #fff;
+	font-size: 24rpx;
+	padding: 1rpx 15rpx;
+	background: rgba(255,255,255,.5);
+}
+.livePlayer .shareButton{
+	position: absolute;
+	right: 32rpx;
+	top: 50%;
+	width: 54rpx;
+	height: 54rpx;
+	line-height: 54rpx;
+	text-align: center;
+	transform:translateY(-50%);
+	overflow: hidden;
+	border-radius: 50%;
+	background: rgba(255,255,255,.5);
+}
+.livePlayer .shareButton i{
+	font-size: 30rpx;
+	color: #fff;
+}
+
+
+/* 直播详情 tab header*/
+.detailsTabHeader{
+	display: flex;
+	align-items: center;
+	height: 100rpx;
+	font-size: 30rpx;
+	background: #fff;
+}
+.detailsTabHeader .tab{
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+}
+.detailsTabHeader .tab .tabButton{
+	height: 100rpx;
+	line-height: 100rpx;
+	border-bottom: 4px solid transparent;
+}
+
+.detailsTabHeader .tab .tabButton.active{
+	border-color: #4b9cf1;
+	padding:0 20rpx;
+}
+.detailsTabHeader .like{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 27rpx;
+	height: 55rpx;
+	line-height: 55rpx;
+	padding:0 34rpx;
+	margin-right: 30rpx;
+	color: #fff;
+	font-size: 26rpx;
+	background: #4b9cf1;
+	vertical-align: middle;
+}
+.detailsTabHeader .like i{
+	font-size: 20rpx;
+	padding-right: 5rpx;
+}
+
+
+
+
+/* 主播 */
+.liveRome {
+    display: flex;
+    align-items: center;
+    height: 200rpx;
+    padding: 0 40rpx;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.liveRome image {
+    display: block;
+    flex-shrink: 1;
+    height: 140rpx;
+    width: 140rpx;
+    border-radius: 50%;
+    margin-right: 34rpx;
+}
+
+.liveRome .liveNews text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 450rpx;
+}
+
+.liveRome .liveNews text:nth-of-type(1) {
+    font-size: 32rpx;
+    font-weight: bold;
+    padding-bottom: 10rpx;
+}
+
+.liveRome .liveNews text:nth-of-type(2) {
+    font-size: 26rpx;
+    color: #999;
+}
+
+
+/* 简介 */
+.info{
+	background: #fff;
+	padding: 20rpx 40rpx;
+}
+.info .title{
+	padding: 10rpx 0 30rpx;
+	font-size: 36rpx;
+	display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-weight: 700;
+}
+.info .content{
+	font-size: 30rpx;
+}

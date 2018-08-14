@@ -1,32 +1,21 @@
-<view class='historyList'>
-    <view class='imgWrap'>
-        <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
-        <image class='cover' src='/images/img/history_img1.jpg' />
-    </view>
-    <view class='liveNews'>
-        <text>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
-        <text>09-29  20:00</text>
-    </view>
-</view>
+<cmp_register></cmp_register>
 
-<!-- 删除 -->
+<block wx:for="{{list}}" wx:key="{{item.index}}">
 <view class='historyList'>
     <view class='imgWrap'>
         <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
-        <image class='cover' src='/images/img/history_img1.jpg' />
+        <image class='cover' src='{{item.thumb}}' />
     </view>
     <view class='liveNews'>
-        <text>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
-        <text>09-29  20:00</text>
+        <text>{{item.title}}</text>
+        <text>{{item.created}}</text>
     </view>
 </view>
-<view class='historyList'>
-    <view class='imgWrap'>
-        <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
-        <image class='cover' src='/images/img/history_img1.jpg' />
-    </view>
-    <view class='liveNews'>
-        <text>2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会2017苹果秋季新品发布会</text>
-        <text>09-29  20:00</text>
-    </view>
-</view>
+</block>
+
+<!-- 
+"thumb": "/upload/20180531/20180208150917.jpg",
+            "title": "P2P网贷疯狂生长 加速金融行业洗牌",
+            "created": 1385347154
+
+ -->

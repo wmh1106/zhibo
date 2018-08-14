@@ -1,67 +1,39 @@
 import {
-    getLogin,
-    getUserAgreedApi,
-    saveUserInfo
-} from '../../utils/api.js'
-import runtime from '../../utils/runtime.js'
+    login,
+	isShowRegister
+} from '../../api/login.js'
 
 Component({
-    properties: {
 
-    },
     data: {
-        isShow: true
+        showRegister: true
     },
+
+    ready() {
+		isShowRegister().then(res=>{
+			let showRegister = res.every(e => e === true)
+			this.setData({
+				showRegister: showRegister
+			})
+		}).catch(error=>{
+			console.log(error)
+			this.setData({
+				showRegister: true
+			})
+		})
+    },
+	
     methods: {
         getUserInfo(e) {
-            if (e.detail.userInfo) {
-                this.setData({
-                    isShow: false
-                })
-            }
-            wx.getSetting({
-                success: function(res) {
-                    console.log(res)
-                    if (res.authSetting['scope.userInfo']) {
-                        getLogin().then((res) => {
-                            const code = res.code;
-                            console.log(code,'+++++++++++++++')
-                            wx.getUserInfo({
-                                success(res) {
-                                    const {
-                                        encryptedData,
-                                        iv,
-                                        userInfo
-                                    } = {
-                                        res
-                                    }
-                                    getUserAgreedApi(res.code).then(res => {
-                                        const data = {
-                                            openid: res.data.openid,
-                                            code: code,
-                                            encryptedData: encryptedData,
-                                            iv: iv,
-                                            userInfo: userInfo,
-                                        }
-
-                                        wx.setStorage({
-                                            key: 'userInfo',
-                                            data: userInfo,
-                                        })
-
-                                        saveUserInfo(data).then(res=>{
-                                            console.log(res)
-                                        })
-                                    })
-                                }
-                            })
-                        }).catch(error => {
-                            console.log(error)
-                        })
-                    }
-                },
-                fail(error) {
-                    console.error(error)
+            login().then(res => {
+                if (res.fail) {
+                    this.setData({
+                        showRegister: true
+                    })
+                } else if (res.code === 0) {
+                    this.setData({
+                        showRegister: false
+                    })
                 }
             })
         }

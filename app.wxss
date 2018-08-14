@@ -1,3 +1,26 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 791469 */
+  src: url('//at.alicdn.com/t/font_791469_63rwx9z4iqc.eot');
+  src: url('//at.alicdn.com/t/font_791469_63rwx9z4iqc.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_791469_63rwx9z4iqc.woff') format('woff'),
+  url('//at.alicdn.com/t/font_791469_63rwx9z4iqc.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_791469_63rwx9z4iqc.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+	font-style:normal;
+}
+.i-back:before { 
+  content: "\e61e";
+}
+.i-share:before { 
+  content: "\e6ff";
+}
+.i-add:before { 
+  content: "\e615";
+}
+
+
 page{
     font-size: 32rpx;
     font-weight: 200;
@@ -5,7 +28,7 @@ page{
     font-family: "PingFangSC-Thin";
      background: #f4f5f9;
 }
-view,text,image,input{
+view,text,image,input,textarea{
     box-sizing: border-box;
 }
 image{

@@ -1,9 +1,9 @@
-<!-- <cmp_register></cmp_register> -->
+<cmp_register></cmp_register>
 
 
 <view class='centerLogin'>
-    <image src='{{imgUrl.userHeadImg}}' class='myIcon'></image>
-    <view class='myName'>测试接口撒地方</view>
+    <image src='{{userHeadImg}}' class='myIcon'></image>
+    <view class='myName'>{{nickName}}</view>
 </view>
 
 <view class='centerlist'>
