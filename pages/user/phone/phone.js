@@ -1,93 +1,86 @@
 import {
-    HTTP
-} from '../../../utils/HTTP.js'
-
-const http = new HTTP()
+	getCode, bindPhone
+} from '../../../api/phone.js'
 
 Page({
     data: {
         codeText: '获取验证码',
         isShowCountDown: false,
-        countDown: 60,
-        phoneInfo:{
-            number:'',
-            code:''
+        countDown: 120,
+        phoneInfo: {
+            number: '',
+            code: ''
         }
     },
-    getCode() {
-        if (this.data.isShowCountDown) return
 
+    handlePhoneNumber(event) {
         this.setData({
-            isShowCountDown: true
-        })
-
-        let tiemr = setInterval(() => {
-            let count = this.data.countDown
-            count -= 1
-            if (count <= 0) {
-                clearInterval(tiemr)
-                this.setData({
-                    isShowCountDown: false,
-                    countDown: 60
-                })
-                return;
-            }
-            this.setData({
-                countDown: count
-            })
-        }, 1000)
-
-        http.request({
-            url: '/Index/sendSms',
-            method: 'POST',
-            data: {
-                mobile: 15000766043
-            },
-            success(data) {
-                console.log(data)
-            },
-            error(msg) {
-                console.error(msg)
-                
-                wx.showToast({
-                    title: msg,
-                    icon:'none',
-                    mask:true
-                })
-            },
-            fail(error) {
-                console.error(error)
-                wx.showToast({
-                    title: String(error),
-                    mask: true
-                })
+            phoneInfo: {
+                ...this.data.phoneInfo,
+                number: event.detail.value
             }
         })
     },
+	handlePhoneCode(event){
+		this.setData({
+			phoneInfo: {
+				...this.data.phoneInfo,
+				code: event.detail.value
+			}
+		})
+	},
 
-    bindPhone(){
-        http.request({
-            url:'/Users/bindUserMobile',
-            data:{
-                sUserName:0,
-                    sVerCode:0
-            },
-            success(data) {
-                console.log(data)
-            },
-            error(msg) {
-                wx.showToast({
-                    title: msg,
-                    icon: 'none',
-                    mask: true
-                })
-            },
-            fail(error) {
-                wx.showToast({
-                    title: error.errMsg,
-                    mask: true
-                })
-            }
-        })
+	handleBindPhone() {
+		this._apiBindPhone(this.data.phoneInfo.number, this.data.phoneInfo.code)
+    },
+
+    handleGetCode() {
+		this._apiGetCode()
+    },
+
+    _apiGetCode() {
+
+		if (this.data.isShowCountDown) return false
+
+		this.setData({
+			isShowCountDown: true
+		})
+
+		let tiemr = setInterval(() => {
+			let count = this.data.countDown
+			count -= 1
+			if (count <= 0) {
+				clearInterval(tiemr)
+				this.setData({
+					isShowCountDown: false,
+					countDown: 120
+				})
+				return;
+			}
+			this.setData({
+				countDown: count
+			})
+		}, 1000)
+		
+        getCode(this.data.phoneInfo.number)
+            .then(res => {
+				
+            }).catch(error => {
+
+            })
+
+    },
+
+	_apiBindPhone(phoneNumber,code) {
+		if (phoneNumber && code ){
+			bindPhone(phoneNumber, code)
+		}else{
+			wx.showToast({
+				title: '手机号或验证码为空',
+				icon: 'none',
+				duration: 2000
+			})
+		}
+		
     }
 })

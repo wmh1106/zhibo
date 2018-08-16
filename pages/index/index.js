@@ -32,7 +32,7 @@ Page({
 	},
 	goToDetails(event){
 		wx.navigateTo({
-			url: '/pages/details/details?id=' + event.currentTarget.dataset.id
+			url: '/pages/details/details?id=' + event.currentTarget.dataset.id + '&userId=' + event.currentTarget.dataset.userid
 		})
 	},
 	// 轮播图片

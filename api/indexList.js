@@ -14,6 +14,9 @@ const getIndexList = (type, page) => {
 	return new Promise((resolve, reject) => {
 		http.request({
 			url: '/Article/index',
+			header: {
+				accesstoken: wx.getStorageSync('access_token')
+			},
 			data: {
 				order: type,
 				page: page

@@ -4,22 +4,40 @@ import {
 
 const http = new HTTP()
 
-// 创建话题
-const createTopicApi = (data) => {
-	console.log(data)
+// 创建话题 title, desc, thumb, stime
+const createTopic = (data) => {
 	return new Promise((resolve, reject) => {
 		http.request({
 			url: '/Article/liveAdd',
-			data:data,
+			header:{
+				accesstoken: wx.getStorageSync('access_token')
+			},
+			data:{
+				...data
+			},
 			success(res) {
-				if (res.status === 1){
-					resolve(res)
-				}else{
-					reject(res)
-				}
+				resolve(res)
 			}
 		})
 	})
 }
 
-export { createTopicApi }
+// 修改话题
+const editorTopic = () =>{
+	return new Promise((resolve, reject) => {
+		http.request({
+			url: '/Article/liveAdd',
+			header: {
+				accesstoken: wx.getStorageSync('access_token')
+			},
+			data: {
+				...data
+			},
+			success(res) {
+				resolve(res)
+			}
+		})
+	})
+}
+
+export { createTopic, editorTopic }

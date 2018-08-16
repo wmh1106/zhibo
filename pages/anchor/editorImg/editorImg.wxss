@@ -1,0 +1,36 @@
+.settingCoverBg{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #e4e4e4;
+	height: 350rpx;
+}
+.settingCoverBg .icon{
+	width: 92rpx;
+	height: 80rpx;
+	margin-bottom:40rpx;
+}
+.settingCoverBg text{
+	font-size: 32rpx;
+	color: #999;
+}
+.settingCoverBg .cover{
+	width: 100%;
+	height: 350rpx;
+}
+
+.writeInfo{
+	padding:40rpx;
+	height: 454rpx;
+	overflow: hidden;
+}
+.writeInfo .saveButton{
+	width: 100%;
+	line-height: 84rpx;
+	text-align: center;
+	color: #fff;
+	border-radius: 5rpx;
+	background: #4b9cf1;
+	margin-top: 20rpx;
+}

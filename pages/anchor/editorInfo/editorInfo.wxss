@@ -1,0 +1,20 @@
+.writeInfo{
+	padding:40rpx;
+	height: 454rpx;
+	overflow: hidden;
+}
+.writeInfo textarea{
+	display: block;
+	width: 100%;
+	background: #fff;
+	padding:10rpx;
+}
+.writeInfo .endButton{
+	width: 100%;
+	line-height: 84rpx;
+	text-align: center;
+	color: #fff;
+	border-radius: 5rpx;
+	background: #4b9cf1;
+	margin-top: 20rpx;
+}

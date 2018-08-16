@@ -5,7 +5,7 @@ import {
 const http = new HTTP()
 
 // 我的 - 关注list
-const live = (id) => {
+const live = (userid) => {
 	return new Promise((resolve, reject) => {
 		http.request({
 			url: '/Collection/collAdd',
@@ -13,10 +13,9 @@ const live = (id) => {
 				accesstoken: wx.getStorageSync('access_token')
 			},
 			data:{
-				id
+				userid
 			},
 			success(res) {
-				console.log(res)
 				resolve(res)
 			}
 		})

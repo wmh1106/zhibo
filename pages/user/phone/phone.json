@@ -1,7 +1,4 @@
 {
     "navigationBarTitleText": "绑定手机",
-	"enablePullDownRefresh": true,
-	"usingComponents": {
-		"cmp_register": "/component/register/index"
-	}
+	"enablePullDownRefresh": true
 }

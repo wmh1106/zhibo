@@ -9,11 +9,14 @@ import {
 
 const http = new HTTP()
 
-// 搜索 - list
+// 直播详情
 const details = (id) => {
 	return new Promise((resolve, reject) => {
 		http.request({
-			url: '/Article/liveDetails',
+			url: '/Article/liveDetails', 
+			header: {
+				accesstoken: wx.getStorageSync('access_token')
+			},
 			data: {
 				id
 			},

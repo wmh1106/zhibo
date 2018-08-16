@@ -1,7 +1,5 @@
 {
 	"navigationBarTitleText": "直播介绍",
-	"enablePullDownRefresh": true,
-	"usingComponents": {
-		"cmp_register": "/component/register/index"
-	}
+	"enablePullDownRefresh": true
+	
 }

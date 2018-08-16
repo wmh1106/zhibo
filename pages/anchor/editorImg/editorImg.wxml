@@ -1,0 +1,9 @@
+<view class='settingCoverBg' bind:tap="uploadFile">
+    <image wx:if="{{ !imgUrl}}" class='icon' src='/images/icon/photo.png' />
+    <text wx:if="{{ !imgUrl}}">上传图片</text>
+    <image mode="widthFix" wx:if="{{ imgUrl}}" class='cover' src='{{imgUrl}}' />
+</view>
+
+<view class='writeInfo'>
+    <view bind:tap="saveImg" class="saveButton">保存</view>
+</view>

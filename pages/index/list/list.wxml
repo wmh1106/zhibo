@@ -1,6 +1,3 @@
-<cmp_register></cmp_register>
-
-
 <block wx:if="{{list.length !== 0}}" wx:for="{{list}}" wx:key="item.id">
 	<cmp_list list="{{item}}">
 		<view slot="row1" class='row1'>

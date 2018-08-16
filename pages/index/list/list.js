@@ -58,11 +58,12 @@ Page({
 		
 		getIndexList(type, page).then(res=>{
 			// 处理页码
-			const pageNumber = res.current_page + 1
+			let pageNumber = res.current_page + 1
 			if (pageNumber > res.last_page) {
 				this.setData({
 					dataOver: true
 				})
+				pageNumber = res.current_page
 			}
 			this.setData({
 				list: res.data.concat(this.data.list),

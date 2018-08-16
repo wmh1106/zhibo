@@ -4,7 +4,7 @@ Page({
 	},
 	onLoad: function (options) {
 		this.setData({
-			topicContent:options.topicContent
+			topicContent: wx.getStorageSync('topicContent')
 		})
 	},
 
@@ -15,9 +15,7 @@ Page({
 	},
 
 	createContent() {
-		
 		wx.setStorageSync('topicContent', this.data.topicContent)
-
 		wx.navigateBack({
 			data: 1
 		})

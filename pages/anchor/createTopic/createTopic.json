@@ -1,7 +1,5 @@
 {
 	"navigationBarTitleText": "创建话题",
-	"enablePullDownRefresh": true,
-	"usingComponents": {
-		"cmp_register": "/component/register/index"
-	}
+	"enablePullDownRefresh": true
+	
 }

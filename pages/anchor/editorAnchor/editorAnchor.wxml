@@ -1,0 +1,41 @@
+<view class='settingWrap'>
+    <view class='settingItem' bind:tap="goToUploadImg" data-name="live_header">
+        <text>主播头像</text>
+        <view>
+            <text>{{live_header ? '已上传':'' }}</text>
+            <i class="iconfont i-go"></i>
+        </view>
+    </view>
+
+    <view class='settingItem' bind:tap="goToInfo" data-name="live_title">
+        <text>直播间标题</text>
+        <view>
+            <text>{{live_title ? '已填':'' }}</text>
+            <i class="iconfont i-go"></i>
+        </view>
+    </view>
+
+    <view class='settingItem' bind:tap="goToInfo" data-name="live_desc">
+        <text>直播间介绍</text>
+        <view>
+            <text>{{live_desc ? '已填':'' }}</text>
+            <i class="iconfont i-go"></i>
+        </view>
+    </view>
+    <view class='settingItem' bind:tap="goToUploadImg" data-name="live_bg">
+        <text>直播间背景</text>
+        <view>
+            <text>{{live_bg ? '已上传':'' }}</text>
+            <i class="iconfont i-go"></i>
+        </view>
+    </view>
+    <view class='settingItem' bind:tap="goToInfo" data-name="live_url">
+        <text>直播间链接</text>
+        <view>
+            <text>{{live_url ? '已填':'' }}</text>
+            <i class="iconfont i-go"></i>
+        </view>
+    </view>
+</view>
+
+<view bind:tap="createAnchor" class='createAnchorButton'>保存</view>

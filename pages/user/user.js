@@ -8,7 +8,8 @@ Page({
             'iconBack': '/images/icon/icon_back.png'
         },
 		userHeadImg: '/images/img/demo.jpg',
-		nickName : '用户名称'
+		nickName : '用户名称',
+		mobile: ''
     },
 
     onLoad: function(options) {},
@@ -18,12 +19,11 @@ Page({
 		wx.getStorage({
 			key: 'userInfo',
 			success:  (res)=>{
-				console.log( res.data)
 				this.setData({
 					userHeadImg: res.data.avatar_url,
-					nickName: res.data.nickname
+					nickName: res.data.nickname,
+					mobile: res.data.mobile
 				})
-				
 			} 
 		})
     },
@@ -44,11 +44,11 @@ Page({
         })
     },
     goToPhone: function() {
-        if ('有手机号') {
+		if (this.data.mobile) {
             wx.navigateTo({
-                url: './changeBindPhone/changeBindPhone?phone=' + 15000766043
+				url: './changeBindPhone/changeBindPhone?phone=' + this.data.mobile
             })
-        } else if ('没有手机号') {
+        } else {
             wx.navigateTo({
                 url: './phone/phone'
             })

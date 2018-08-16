@@ -56,7 +56,8 @@ const userAgreeLoginApi = function(option) {
 					key: "userInfo",
 					data: {
 						avatar_url: res.avatar_url,
-						nickname: res.nickname
+						nickname: res.nickname,
+						mobile: res.mobile
 					}
 				})
 				
@@ -88,11 +89,9 @@ const isShowRegister = function () {
 	const checkSession = new Promise(function (resolve, reject) {
 		wx.checkSession({
 			success: (res) => {
-				console.log('登录', res)
 				resolve(false)
 			},
 			fail: (res) => {
-				console.log('未登录', res)
 				resolve(true)
 			}
 		})
@@ -104,10 +103,8 @@ const isShowRegister = function () {
 		wx.getSetting({
 			success: res => {
 				if (res.authSetting && res.authSetting['scope.userInfo']) {
-					console.log('授权', res)
 					resolve(false)
 				} else {
-					console.log('未授权', res)
 					resolve(true)
 				}
 			},

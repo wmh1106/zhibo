@@ -17,6 +17,9 @@ const searchList = (key,page) => {
 			data:{
 				key,page
 			},
+			header: {
+				accesstoken: wx.getStorageSync('access_token')
+			},
 			success: (res) => {
 				// 处理数据
 				const list = res.data.map(item => {

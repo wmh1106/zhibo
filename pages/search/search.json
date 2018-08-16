@@ -1,6 +1,6 @@
 {
+		"navigationBarTitleText": "搜索",
 	"usingComponents": {
-		"cmp_list": "/component/list/index",
-		"cmp_register": "/component/register/index"
+		"cmp_list": "/component/list/index"
 	}
 }

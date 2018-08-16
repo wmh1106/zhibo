@@ -48,7 +48,7 @@
 
     <view class='recommendList'>
         <block wx:for="{{putlist}}" wx:key="{{item.id}}">
-            <view class='listBox' data-id="{{item.id}}" bind:tap="goToDetails">
+            <view class='listBox' data-userId="{{item.userId}}" data-id="{{item.id}}" bind:tap="goToDetails">
                 <view class='showImgWrap'>
                     <image src='{{item.thumb}}' class='showImg' />
                     <view class='watch'>

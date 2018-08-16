@@ -1,6 +1,32 @@
+.anchorBox{
+	position: relative;
+    min-height: 300rpx;
+}
+.anchorBox .anchorCoverImg{
+	position: absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height: 100%;
+}
+
+.anchorBox .otherButton{
+	position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: flex-end;
+	color: #fff;
+	font-size: 50rpx;
+	padding-right: 20rpx;
+}
+.anchorBox .otherButton i{
+	display: block;
+	padding: 5rpx 10rpx;
+	margin-top:30rpx;
+}
 .anchorWrap {
+	position: relative;
     padding: 30rpx 40rpx;
-    background: #4b9cf1;
     display: flex;
     min-height: 300rpx;
 }
@@ -10,6 +36,7 @@
     height: 180rpx;
     border-radius: 50%;
 }
+
 
 .anchorWrap .anchorInfo {
     flex: 1;
@@ -27,6 +54,8 @@
 .anchorWrap .anchorInfo .anchorContent {
     font-size: 28rpx;
 }
+
+/* 按钮 新建话题 */
 
 .anchorButtonWrap {
     display: flex;
@@ -52,69 +81,22 @@
     padding: 0 5rpx;
 }
 
-
-
-
-/* 搜索结果 */
-
-.searchResultList {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 55rpx 35rpx;
-    border-bottom: 1px solid #ddd;
-    background: #ffffff;
-}
-
-.searchResultList .resultImgWrap {
-    position: relative;
-    width: 240rpx;
-    height: 160rpx;
-    flex-shrink: 1;
-    margin-right: 35rpx;
-}
-
-.searchResultList .resultImgWrap .show {
-    width: 100%;
-    height: 100%;
-    border-radius: 10rpx;
-}
-
-.searchResultList .resultImgWrap .type {
-    position: absolute;
-    top: 10rpx;
-    left: 10rpx;
-    width: 32rpx;
-    height: 32rpx;
-}
-
-.searchResultList .resultTextWrap {
-    height: 160rpx;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.searchResultList .resultTextWrap .row {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 450rpx;
-    font-size: 26rpx;
-    color: #999;
-}
-
-.searchResultList .resultTextWrap .row.title {
-    font-size: 34rpx;
-}
-.noMoreData{
-    line-height: 60rpx;
-    text-align: center;
-    font-size: 30rpx;
-    color: #999;
-}
-.searchResultList .resultTextWrap .row.state{
-	display: inline-flex;
+/* 列表 */
+.row1{}
+.row2{
+	display: flex;
 	justify-content: space-between;
 }
+.row2 .buttonWrap{
+	display: inline-flex;
+}
+.row2 .buttonWrap > view{
+	margin-left: 20rpx;
+}
+.row2 .buttonWrap > view i{
+	padding-right: 5rpx;
+}
+
+
+
+

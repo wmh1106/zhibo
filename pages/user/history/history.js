@@ -1,8 +1,6 @@
 import {
-	historyListData
+	historyList
 } from '../../../api/history.js'
-
-import { formatTime} from '../../../utils/util.js'
 
 Page({
 	data: {
@@ -10,23 +8,44 @@ Page({
 			flow_audio: '/images/icon/flow_audio.png',
 			flow_viedeo: '/images/icon/flow_viedeo.png'
 		},
-		list: []
+		list: [],
+		page: 1,
+		dataOver:false
 	},
 	onReady() {
-		historyListData().then((result) => {
-			let res = []
-			res = result.data.map(item=>{
-				return {
-					...item,
-					created: formatTime(item.created)
-				}
-			})
-			this.setData({
-				list: res
-			})
-		})
+		this._apiHistoryList(this.data.page)
 	},
-	goToRoom() {
-		// 跳转未完成
+	onReachBottom(res) {
+		this._apiHistoryList(this.data.page)
+	},
+	_apiHistoryList(page){
+
+		if (this.data.dataOver) return null
+
+		wx.showLoading({
+			title: '数据加载中...',
+			mask: true
+		})
+
+		historyList(page).then(res => {
+			// 处理页码
+			let pageNumber = res.current_page + 1
+
+			if (pageNumber > res.last_page) {
+				this.setData({
+					dataOver: true
+				})
+				pageNumber = res.current_page
+			}
+
+			this.setData({
+				list: res.data.concat(this.data.list),
+				page: pageNumber
+			})
+
+			wx.hideLoading()
+		}).catch(error => {
+			wx.hideLoading()
+		})
 	}
 })

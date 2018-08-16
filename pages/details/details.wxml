@@ -1,5 +1,4 @@
-<cmp_register></cmp_register>
-
+<!-- 直播详情 -->
 <view class='livePlayer'>
     <!-- live,RTC -->
     <live-player src="https://domain/pull_stream" mode="RTC" autoplay bindstatechange="statechange" binderror="error">
@@ -18,13 +17,39 @@
     </view>
 
     <view class='like' bind:tap="handleLive">
-        <i class="iconfont i-add"></i>
-        <text>关注</text>
+		<block wx:if="{{live}}">
+        	<text >已关注</text>
+		</block>
+        <block wx:else>
+			<i class="iconfont i-add"></i>
+        	<text >关注</text>
+		</block>
     </view>
 </view>
 
 <view class='detailsTabBody'>
-    <view class="item" hidden="{{ !(currentTab===0) }}">聊天</view>
+    <view class="item" hidden="{{ !(currentTab===0) }}">
+		<view class='inpBox'>
+			<view class='iconButton'>
+				<i class="iconfont i-face"></i>	
+			</view>
+			<view class='inpText'>
+				<input placeholder="请输入内容" value='' />
+			</view>
+			<view class='iconButton'>
+				<i class="iconfont i-push"></i>	
+			</view>
+		</view>
+		<scroll-view class="chitchat">
+			<view>
+				<svg class="icon" aria-hidden="true">
+    <use xlink:href="#i-img"></use>
+</svg>
+				<image src="/images/img/head.jpg" />
+				<view>E融车贷：【满标公告】e融宝161223001</view>
+			</view>
+		</scroll-view>
+	</view>
     <view class="item host"  hidden="{{ !(currentTab===1) }}">
         <view bind:tap="goToRoom" class='liveRome' data-type_id="{{item.type_id}}" data-room_id='{{item.room_id}}' data-user_id='{{item.userId}}' data-created='{{item.created}}'>
             <image src='{{ info.headimgurl }}' />

@@ -4,44 +4,70 @@ import {
 import {
 	live
 } from '../../api/live.js'
+import {
+	historyAdd
+} from '../../api/history.js'
 
 Page({
     data: {
 		id:-1,
+		userId:-1,
 		// tab 索引
 		currentTab: 0,
 		// 主播 list
 		list:[],
 		// 其他信息
-		info:{}
+		info:{},
+		live:false
     },
     onLoad: function(options) {
-		details(options.id).then(res=>{
-			console.log(res)
-			this.setData({
-				list: res.datas,
-				info: res.info,
-				id:options.id
-			})
-
-		}).catch(error=>{
-			console.log(error)
-		})
+		this._apiDetails(options.id)
+		this._apiHistoryAdd(options.userId)
     },
     onReady: function() {
 		
     },
 	clickTab(event){
 		const current = parseInt(event.currentTarget.dataset.current)
-		console.log(current)
 		this.setData({
 			currentTab: current
 		})
 	},
 	handleLive(){
-		live(this.data.id)
+		this._apiLiveAdd(this.data.userId)
 	},
     onShareAppMessage: function(event) {
 		console.log(event)
-    }
+    },
+	
+	_apiLiveAdd(userId){
+		live(userId).then(res => {
+			wx.showToast({
+				title: '关注成功',
+				icon: 'none',
+				duration: 1000
+			})
+		}).catch(error => {
+			console.log(error)
+		})
+	},
+	_apiDetails(id){
+		details(id).then(res => {
+			this.setData({
+				list: res.datas,
+				info: res.info,
+				id: id,
+				live: res.live ? true : false
+			})
+		}).catch(error => {
+			console.log(error)
+		})
+	},
+	_apiHistoryAdd(id){
+		historyAdd(id).then(res=>{
+			console.log(res)
+		}).catch(error=>{
+			console.log(error)
+		})
+	}
 })

@@ -1,21 +1,7 @@
-<cmp_register></cmp_register>
-
 <block wx:for="{{list}}" wx:key="{{item.index}}">
-<view class='historyList'>
-    <view class='imgWrap'>
-        <image class='type' src='{{ type===0 ? imgUrl.flow_audio : imgUrl.flow_viedeo}} ' />
-        <image class='cover' src='{{item.thumb}}' />
-    </view>
-    <view class='liveNews'>
-        <text>{{item.title}}</text>
-        <text>{{item.created}}</text>
-    </view>
-</view>
+	<cmp_list list="{{item}}">
+		<view slot="row2">
+			<text class='tiem'>开始时间：{{item.created}}</text>
+		</view>	
+	</cmp_list>
 </block>
-
-<!-- 
-"thumb": "/upload/20180531/20180208150917.jpg",
-            "title": "P2P网贷疯狂生长 加速金融行业洗牌",
-            "created": 1385347154
-
- -->

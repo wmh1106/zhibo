@@ -6,7 +6,7 @@ Page({
 
     onLoad: function(options) {
 		this.setData({
-			topicTitle: options.topicTitle
+			topicTitle: wx.getStorageSync('topicTitle')
 		})
     },
 

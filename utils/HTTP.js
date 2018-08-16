@@ -4,7 +4,15 @@ import {
 } from '../config.js'
 
 const tips = {
-	'-1':'抱歉，出现一个错误'
+	'-1':'抱歉，出现一个错误',
+	'10000':'系统繁忙',
+	'10010':'验证码超过有效期',
+	'10011':'验证码错误',
+	'10012':'手机号已被绑定',
+	'10013':'两次输入的密码不一致',
+	'10014':'用户不存在',
+	'10015':'密码不能为空',
+	'10016':'验证失败'
 }
 
 class HTTP {
@@ -30,23 +38,25 @@ class HTTP {
                     errMsg,
 					header
                 } = res
-
 				if (statusCode.toString().startsWith('2') && data.code === 0) {
 					success && success(data.data)
                 } else {
-					let errorCode = -1;
-					this.__showError(errorCode)
-
+					if (tips[data.code]){
+						this._showError(data.code)
+					}else{
+						this._showError('-1')
+					}
+					
                 }
             },
             fail:  (error)=> {
 				let errorCode = -1;
-				this.__showError(errorCode)
+				this._showError(errorCode)
             }
         })
     }
 
-	__showError(errorCode){
+	_showError(errorCode){
 		if (!errorCode){
 			errorCode = -1
 		}

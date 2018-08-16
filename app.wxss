@@ -1,48 +1,94 @@
 @font-face {
   font-family: 'iconfont';  /* project id 791469 */
-  src: url('//at.alicdn.com/t/font_791469_k90e24otiij.eot');
-  src: url('//at.alicdn.com/t/font_791469_k90e24otiij.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_791469_k90e24otiij.woff') format('woff'),
-  url('//at.alicdn.com/t/font_791469_k90e24otiij.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_791469_k90e24otiij.svg#iconfont') format('svg');
-}
-.iconfont{
-    font-family:"iconfont" !important;
-	font-style:normal;
-}
-.i-back:before { 
-  content: "\e61e";
-}
-.i-share:before { 
-  content: "\e6ff";
-}
-.i-add:before { 
-  content: "\e615";
-}
-.i-go:before { 
-  content: "\e618";
+  src: url('//at.alicdn.com/t/font_791469_e09akrgvt7.eot');
+  src: url('//at.alicdn.com/t/font_791469_e09akrgvt7.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_791469_e09akrgvt7.woff') format('woff'),
+  url('//at.alicdn.com/t/font_791469_e09akrgvt7.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_791469_e09akrgvt7.svg#iconfont') format('svg');
 }
 
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+}
 
-page{
+.i-back:before {
+    content: "\e61e";
+}
+
+.i-share:before {
+    content: "\e6ff";
+}
+
+.i-add:before {
+    content: "\e615";
+}
+
+.i-push::before {
+    content: "\e690";
+}
+
+.i-go:before {
+    content: "\e618";
+}
+
+.i-down::before {
+    content: "\e632";
+}
+
+.i-face:before {
+    content: "\e614";
+}
+
+.i-menu:before {
+    content: "\e608";
+}
+
+.i-modify:before {
+    content: "\e71e";
+}
+.i-copy:before {
+    content: "\e6c0";
+}
+
+.i-editor:before {
+    content: "\e604";
+}
+.i-invitation:before {
+    content: "\e666";
+}
+.i-play:before {
+    content: "\e611";
+}
+.i-setting:before {
+    content: "\e639";
+}
+.i-search:before {
+    content: "\e651";
+}
+
+page {
     font-size: 32rpx;
-    font-weight: 200;
+    font-weight: normal;
     color: #333;
     font-family: "PingFangSC-Thin";
-     background: #f4f5f9;
+    background: #f4f5f9;
 }
-view,text,image,input,textarea{
+
+view, text, image, input, textarea {
     box-sizing: border-box;
 }
-image{
+
+image {
     vertical-align: middle;
 }
 
-.bgGray{
+.bgGray {
     background-color: #f5f5f5;
     /* 防止 margin 的 bug */
-    border-top:1px solid transparent;
+    border-top: 1px solid transparent;
 }
+
 .container {
     height: 100%;
     display: flex;

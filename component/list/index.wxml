@@ -1,5 +1,5 @@
 
-<view class='searchResultList' data-id="{{list.id}}">
+<view class='searchResultList' bindtap="goToDetails" data-id="{{list.id}}" data-userId="{{item.userId}}">
     <view class='resultImgWrap'>
 	
         <image class='show' src="{{list.thumb}}" />

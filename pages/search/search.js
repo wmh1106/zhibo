@@ -7,8 +7,10 @@ Page({
 	data: {
 		searchKey:'',
 		page:1,
-        list: []
+        list: [],
+		dataOver:false
     },
+
     clearText() {
 		this.setData({
 			searchKey:''
@@ -21,19 +23,56 @@ Page({
 		})
 	},
 
+	goToDetails(event){
+		wx.navigateTo({
+			url: '/pages/details/details?id=' + event.currentTarget.dataset.id
+		})
+	},
+
 	handleValue(event){
+
+		console.log(event.detail)
 		this.setData({
 			searchKey : event.detail.value
 		})
 	},
 
 	searchContent(){
-		searchList(this.data.searchKey, this.data.page).then((result) => {
-			console.log(result)
+		this._apiSearchList(this.data.searchKey, this.data.page)
+	},
+	
+	onReachBottom(res) {
+		this._apiSearchList(this.data.searchKey, this.data.page)
+	},
+
+	_apiSearchList(type, page) {
+
+		if (this.data.dataOver) return null
+
+		wx.showLoading({
+			title: '数据加载中...',
+			mask: true
+		})
+
+		searchList(type, page).then(res => {
+			// 处理页码
+			let pageNumber = res.current_page + 1
+
+			if (pageNumber > res.last_page) {
+				this.setData({
+					dataOver: true
+				})
+				pageNumber = res.current_page
+			}
+
 			this.setData({
-				list: result.data
+				list: res.data.concat(this.data.list),
+				page: pageNumber
 			})
 
+			wx.hideLoading()
+		}).catch(error => {
+			wx.hideLoading()
 		})
 	}	
 })

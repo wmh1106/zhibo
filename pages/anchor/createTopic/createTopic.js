@@ -1,7 +1,10 @@
 import {
-    createTopicApi
-} from '../../../api/createTopic.js'
+    uploadImg
+} from '../../../api/uploadFile.js'
 
+import {
+    createTopic
+} from '../../../api/createTopic.js'
 
 
 Page({
@@ -10,14 +13,21 @@ Page({
         tempFilePaths: '',
         topicTitle: '',
         topicContent: '',
-        time: ''
+        stime: ''
+    },
+
+    onShow() {
+        this.setData({
+            topicTitle: wx.getStorageSync('topicTitle'),
+            topicContent: wx.getStorageSync('topicContent'),
+        })
     },
 
     uploadFile(event) {
         wx.chooseImage({
             count: 1,
             success: (result) => {
-                this.uploadImg(result.tempFilePaths[0])
+                this._apiUploadImg(result.tempFilePaths[0])
             },
             fail(result) {
                 console.log(result)
@@ -25,71 +35,64 @@ Page({
         })
     },
 
-    uploadImg(fileUrl) {
-        wx.uploadFile({
-            url: 'http://live.wxstores.cn/Api/Index/UploadFiles',
-            filePath: fileUrl,
-            header: {
-                'content-type': 'multipart/form-data'
-            },
-            name: 'file',
-            success: (res) => {
-                let result = null
-                if (res.statusCode === 200) {
-                    result = JSON.parse(res.data)
-                    console.log(result)
-                    this.setData({
-                        tempFilePaths: result.data
-                    })
-                }
-            }
-        })
-    },
+
 
     goToTopicTitle() {
         wx.navigateTo({
-            url: '../createTopicTitle/createTopicTitle?topicTitle=' + this.data.topicTitle
+            url: '../createTopicTitle/createTopicTitle'
         })
     },
 
     goToTopicInfo() {
         wx.navigateTo({
-            url: '../createTopicInfo/createTopicInfo?topicContent=' + this.data.topicContent
+            url: '../createTopicInfo/createTopicInfo'
         })
     },
 
     bindTimeChange: function(e) {
+        console.log(e)
         this.setData({
-            time: e.detail.value
+            stime: e.detail.value
         })
     },
 
     createTopic() {
+        const option = {
+            topicContent: this.data.topicContent,
+            topicTitle: this.data.topicTitle,
+            tempFilePaths: this.data.tempFilePaths,
+            stime: this.data.stime
+        }
 
-        let topicContent = wx.getStorageSync('topicContent')
-        let topicTitle = wx.getStorageSync('topicTitle')
-        let tempFilePaths = this.data.tempFilePaths
-        let time = this.data.time
-
-        if (topicContent && topicTitle && tempFilePaths && time) {
-			createTopicApi({
-				desc: topicContent,
-				title: topicTitle,
-				thumb: tempFilePaths,
-				stime: time
-			}).then((result) => {
-				console.log(result)
-			}).catch(()=>{
-				
-			})
+        if (this.data.topicContent && this.data.topicTitle && this.data.tempFilePaths && this.data.stime) {
+            this._apiCreateTopic({
+                title: this.data.topicTitle,
+                desc: this.data.topicContent,
+                thumb: this.data.tempFilePaths,
+                stime: this.data.stime
+            })
         } else {
-			wx.showToast({
-				title:'资料填写不全',
-				icon:'none'
-			})
+            wx.showToast({
+                title: '资料填写不全',
+                icon: 'none'
+            })
         }
     },
 
+    _apiCreateTopic(data) {
+        createTopic(data).then(res => {}).catch(error => {})
+    },
+	
+    _apiUploadImg(fileUrl) {
 
+        uploadImg(fileUrl).then(res => {
+            this.setData({
+                tempFilePaths: res
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+
+    },
 
 })

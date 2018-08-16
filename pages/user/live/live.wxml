@@ -1,5 +1,3 @@
-<cmp_register></cmp_register>
-
 <block wx:for="{{list}}">
     <view bind:tap="goToRoom" class='liveRome' data-type_id="{{item.type_id}}" data-room_id='{{item.room_id}}' data-user_id='{{item.userId}}' data-created='{{item.created}}'>
         <image src='{{item.headimgurl}}' />

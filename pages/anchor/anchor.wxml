@@ -1,52 +1,46 @@
 <cmp_register></cmp_register>
 
-<view class='anchorWrap'>
-    <image src='/images/img/demo.jpg' class='anchorHeaderImg' />
-    <view class='anchorInfo'>
-        <view class='anchorTitle'>我的直播间</view>
-        <view class='anchorFriend'>粉丝：
-            <text>0</text>
-        </view>
-        <view class='anchorContent'>
-            阿萨德飞机开始爱对方即可啊圣诞节疯狂了阿啥酒店客房啊速度快放假卡的房间卡三等奖
-        </view>
-    </view>
+<view class='anchorBox'>
+	<image src='{{live_bg}}' class='anchorCoverImg' />
+	<view class='otherButton'>
+		<i bind:tap="goToSetting" class="iconfont i-setting"></i>
+		<i bind:tap="goToSearch" class="iconfont i-search"></i>
+	</view>
+	<view class='anchorWrap' style="background: {{live_bg ? '':'#4b9cf1;'}}">
+		<image src='{{live_header}}' class='anchorHeaderImg' />
+		<view class='anchorInfo'>
+			<view class='anchorTitle'>{{live_title}}</view>
+			<view class='anchorFriend'>粉丝：
+				<text>0</text>
+			</view>
+			<view class='anchorContent'>{{live_desc}}</view>
+		</view>
+	</view>
+
 </view>
 
 
 <view class='anchorButtonWrap' bind:tap="goToCreatTopic">
     <view class='anchorButton'>
-        <text>+</text>
+        <i class="iconfont i-add"></i>
         <text>新建话题</text>
     </view>
 </view>
 
-
 <view style='margin-top:10rpx;'>
-   <block wx:for="{{myList}}" wx:key="{{item.id}}">
-    <view class='searchResultList'>
-        <view class='resultImgWrap'>
-            <image class='show' src='{{item.thumb}}' />
-            <image class='type' src='/images/icon/flow_audio.png' />
-        </view>
-        <view class='resultTextWrap'>
-            <text class='row title'>{{item.title}}</text>
-            <view class='row state'>
-                <text>观看结束 | 即将直播</text>
-                <text>{{item.click}}观看</text>
+    <block wx:for="{{myList}}" wx:key="{{item.id}}">
+        <cmp_list list="{{item}}">
+            <view slot="row1" class='row1'>
+                <text>{{ item.state }}</text>
+                <text>{{ item.click }} 观看</text>
             </view>
-            <text class='row'>{{item.created}}</text>
-        </view>
-    </view>
-   </block>
+            <view slot="row2" class='row2'>
+                <text class='tiem'>{{item.created}}</text>
+                <view class='buttonWrap'>
+                    <view><i class="iconfont i-modify"></i><text>操作</text></view>
+                    <view bind:tap="goToAnchorDetails"><i class="iconfont i-menu"></i><text>详情</text></view>
+                </view>
+            </view>
+        </cmp_list>
+    </block>
 </view>
-
-<!-- 
-"id": 856,
-"userId": 2,
-"content": "<p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">美国经济学家穆来纳森和心理学家莎菲尔曾经做过一个研究，发现穷人无法摆脱贫穷的真正原因是稀缺心态。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\"><strong>所谓的稀缺心态指的是越是稀缺什么，就越是在意什么。</strong></p><p>&nbsp;</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">穷人缺钱，所以他们往往在钱上斤斤计较，上街买菜总爱讨价还价。跟菜贩子耗数十分钟也就省下几毛钱。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">穆来纳森说：“人们的视野会因稀缺心态变得狭窄，形成管窥之见，即只能通过‘管子’的孔洞看清少量物体，而无视管外的一切。”</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\"><strong>稀缺心态还会导致两种恶性结果：</strong></p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">一是长期处于稀缺状态的穷人，会被稀缺心态消耗大量带宽，其判断力和认知能力会因为过于关注眼前问题而大大降低，而没有多余带宽来考虑投资和长远发展事宜。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">二是长期处于稀缺状态的穷人，会被稀缺心态消耗大量带宽，用来进行自我控制的心智资源就会很少，所以容易变得非常冲动。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\"><strong>那么我们应该如何做才能跳出可怕的稀缺心态？</strong></p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\"><strong>1、设立目标</strong></p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">哈佛大学曾做过一个人生影响跟踪调查，对一群出身环境和智商都差不多的年轻人进行调查。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">发现27%的人没有理想，生活没有目标；60%的人理想模糊，生活目标模糊；10%的人有理想，制定了短期规划；3%的人有理想，制定了清晰的长期规划。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">25年之后，这群人的生活状况发生了有意思的改变：</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">那3%的人，因为一直有规划地朝着人生理想迈进，所以最后几乎都成了社会顶尖成功人士。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">那10%的人，因为不断实现短期目标，最后成了社会中产，做了律师、工程师、企业主管等。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">那60%的人，生活在社会中下层，没什么特别的成绩，就指望孩子将来有出息。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">剩下27%的人，成了社会最底层的人，成天抱怨他人，抱怨社会。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">这个调查说明了制定人生目标，能让你离成功距离更近。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\"><strong>2、确立目标导向思维</strong></p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">当你确定你的长期目标之后，就不能再以穷人心态处理事务。比如上大学有一个同学，大一结束之后全班同学都冷落了他。没什么特别的原因，就因为他太爱计较，比如同宿舍的同学向他借把刷子，他竟然开口向人家收借物钱，一两次别人还能忍，次数多了，渐渐地大家不再愿意跟他讲话，跟不愿意跟他发生任何联系。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">毕业没多久，小编听说此同学进了一家不错的单位，但是没过多久就离职了，此后这位同学就陷入了不断跳槽、不断离职的魔咒。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">这位同学犯的就是稀缺心态的错误导向，因为太过在意钱，他变得斤斤计较，引起别人反感，最后丢失了和同学之间难得的友谊。走上工作岗位也是一样，和同事、上司之间斤斤计较，最终丢掉了好工作。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">他以为占了别人便宜，实际上吃了大亏，这就是穷人思维最要命的地方，越在乎钱，越影响视野和格局。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">所以越穷的时候，我们越不能在乎钱。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\"><strong>3、花该花的钱</strong></p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">很多人抠门抠习惯了，在该花钱的时候都不花钱，最终陷入冰山成本。什么意思呢？</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">举个简单的例子，一个普通人家的孩子因为考试发挥失误，没考上二本的公立学校，勉强考上了私立的三本院校，这两个档次的学校，每年学费差距在1万左右。父母为了省钱，最终选择了学费更为便宜专科院校。这个孩子一开始进入大学念书还是学霸，后来跟着同寝室的人混社会，渐渐地连学也不想上了，最后连专科都没混毕业。这就是冰山成本。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">再比如，小编的邻居王大妈有一个跛脚的女儿，其实她女儿小时候并不跛脚，就是有一次发烧，王大妈不舍得花那几百块钱的医药费，最后酿成了她女儿一辈子的悲剧。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">这就是穷人思维的可怕之处，它让我们只看到眼前，而对未来的重大影响视而不见。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">王大妈省下来几百块钱医药费，却毁了女儿一辈子的健康。这个代价足够让她悔恨终身。</p><p style=\"margin-top:12px;margin-bottom:12px;padding-right:20px;padding-left:17px;color:rgb(0, 0, 0);font-family:宋体, Helvetica, sans-serif;font-size:14px;\">所以，总结下来阻碍你成为富人的唯一敌人就是穷人思维，如何彻底摆脱它？不安穷人的正常思维出牌，越在乎钱，越要轻视它、克服它，让钱为你所用，而不是抠抠搜搜地被钱所左右。相信我，总有一天你会为自身的变化感到惊喜。</p><p>&nbsp;</p>",
-"writer": "文案",
-"stime": 0,
-"url": null,
-"stauts": 0,
- -->

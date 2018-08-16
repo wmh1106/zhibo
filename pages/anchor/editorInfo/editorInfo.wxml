@@ -1,0 +1,9 @@
+<view class='writeInfo'>
+    <textarea bindinput="changeText" 
+		auto-focus="{{true}}" 
+		maxlength="140" 
+		placeholder="请填写内容" 
+		value='{{content}}' 
+	/>
+    <view bind:tap="saveInfo" class="endButton">保存</view>
+</view>
