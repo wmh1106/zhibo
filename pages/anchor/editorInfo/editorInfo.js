@@ -1,7 +1,9 @@
 const tips = {
     'live_title': '直播间标题',
 	'live_desc': '直播间介绍',
-	'live_url': '直播间链接'
+	'live_url': '直播间链接',
+	'topic_title':'本期话题',
+	'topic_content':'话题介绍',
 }
 
 

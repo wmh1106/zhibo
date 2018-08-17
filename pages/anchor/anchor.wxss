@@ -82,7 +82,10 @@
 }
 
 /* 列表 */
-.row1{}
+.row1{
+	display: flex;
+	justify-content: space-between;
+}
 .row2{
 	display: flex;
 	justify-content: space-between;
@@ -96,7 +99,3 @@
 .row2 .buttonWrap > view i{
 	padding-right: 5rpx;
 }
-
-
-
-

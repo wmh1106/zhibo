@@ -10,12 +10,14 @@
         "pages/user/changeBindPhone/changeBindPhone",
         "pages/user/phone/phone",
         "pages/user/live/live",
+		
         "pages/anchor/anchor",
+
         "pages/anchor/createTopic/createTopic",
-        "pages/anchor/createTopicTitle/createTopicTitle",
-        "pages/anchor/createTopicInfo/createTopicInfo",
+		"pages/anchor/editorTopic/editorTopic",
         "pages/anchor/anchorDetails/anchorDetails",
         "pages/anchor/editorAnchor/editorAnchor",
+		
         "pages/anchor/editorInfo/editorInfo",
         "pages/anchor/editorImg/editorImg"
     ],

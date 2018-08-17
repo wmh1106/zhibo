@@ -5,7 +5,7 @@
 </view>
 
 <view class='settingWrap'>
-    <view class='settingItem' bind:tap="goToTopicTitle">
+    <view class='settingItem' bind:tap="goToInfo" data-name="topic_title">
         <text> 本期话题</text>
         <view>
             <text>{{topicTitle !== '' ? '已填':'' }}</text>
@@ -14,7 +14,7 @@
 
     </view>
 
-    <view class='settingItem' bind:tap="goToTopicInfo">
+    <view class='settingItem'  bind:tap="goToInfo" data-name="topic_content">
         <text> 直播介绍</text>
         <view>
             <text>{{topicContent !== '' ? '已填':'' }}</text>
@@ -36,4 +36,4 @@
 
 </view>
 
-<view bind:tap="createTopic" class='createTopicButton'>创建</view>
+<view bind:tap="saveTopic" class='createTopicButton'>创建</view>

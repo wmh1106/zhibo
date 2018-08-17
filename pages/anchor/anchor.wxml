@@ -37,7 +37,7 @@
             <view slot="row2" class='row2'>
                 <text class='tiem'>{{item.created}}</text>
                 <view class='buttonWrap'>
-                    <view><i class="iconfont i-modify"></i><text>操作</text></view>
+                    <!-- <view><i class="iconfont i-modify"></i><text>操作</text></view> -->
                     <view bind:tap="goToAnchorDetails"><i class="iconfont i-menu"></i><text>详情</text></view>
                 </view>
             </view>

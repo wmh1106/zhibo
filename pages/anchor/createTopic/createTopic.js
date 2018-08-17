@@ -18,8 +18,8 @@ Page({
 
     onShow() {
         this.setData({
-            topicTitle: wx.getStorageSync('topicTitle'),
-            topicContent: wx.getStorageSync('topicContent'),
+			topicTitle: wx.getStorageSync('topic_title'),
+            topicContent: wx.getStorageSync('topic_content'),
         })
     },
 
@@ -35,19 +35,12 @@ Page({
         })
     },
 
-
-
-    goToTopicTitle() {
-        wx.navigateTo({
-            url: '../createTopicTitle/createTopicTitle'
-        })
-    },
-
-    goToTopicInfo() {
-        wx.navigateTo({
-            url: '../createTopicInfo/createTopicInfo'
-        })
-    },
+	goToInfo(event){
+		const name = event.currentTarget.dataset.name
+		wx.navigateTo({
+			url: '../editorInfo/editorInfo?name=' + name
+		})
+	},
 
     bindTimeChange: function(e) {
         console.log(e)
@@ -56,7 +49,7 @@ Page({
         })
     },
 
-    createTopic() {
+    saveTopic() {
         const option = {
             topicContent: this.data.topicContent,
             topicTitle: this.data.topicTitle,
@@ -80,7 +73,11 @@ Page({
     },
 
     _apiCreateTopic(data) {
-        createTopic(data).then(res => {}).catch(error => {})
+        createTopic(data).then(res => {
+			wx.switchTab({
+				url: '/pages/anchor/anchor'
+			})
+		}).catch(error => {})
     },
 	
     _apiUploadImg(fileUrl) {

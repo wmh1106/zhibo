@@ -16,15 +16,11 @@ Page({
 
 
     onReady: function() {
-		wx.getStorage({
-			key: 'userInfo',
-			success:  (res)=>{
-				this.setData({
-					userHeadImg: res.data.avatar_url,
-					nickName: res.data.nickname,
-					mobile: res.data.mobile
-				})
-			} 
+		const userInfo = wx.getStorageSync('userInfo')
+		this.setData({
+			userHeadImg: userInfo.avatar_url,
+			nickName: userInfo.nickname,
+			mobile: userInfo.mobile
 		})
     },
 

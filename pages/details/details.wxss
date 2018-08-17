@@ -77,6 +77,9 @@ live-player{
 	padding-right: 5rpx;
 }
 
+
+
+
 /* 选项卡 body- 主播 */
 .liveRome {
 	margin-top:10rpx;
@@ -162,4 +165,60 @@ live-player{
 	flex-shrink: 1;
 	font-size: 70rpx;
 	padding:0 20rpx;
+}
+
+.chitchat{
+	height: 610rpx;
+	background: #4b9cf1;
+	overflow: hidden;
+}
+.chitchat .user{
+	display: flex;
+	padding:0 34rpx;
+	margin:42rpx;
+}
+.chitchat .user.other{justify-content: flex-start;}
+.chitchat .user.other .headerIcon{order: 1;}
+.chitchat .user.other .content{order: 2; margin-left: 40rpx;}
+
+.chitchat .user.other{justify-content: flex-end;}
+.chitchat .user.me .headerIcon{order: 2;}
+.chitchat .user.me .content{order: 1; margin-right: 40rpx;}
+
+
+.chitchat .user .headerIcon{
+	flex-shrink: 0;
+	width: 86rpx;
+	height: 86rpx;
+	border-radius: 43rpx;
+	overflow: hidden;
+}
+.chitchat .user .headerIcon image{
+	width: 86rpx;
+	height: 86rpx;
+}
+.chitchat .user .content{
+	position: relative;
+	border-radius: 10rpx;
+	background: #fff;
+	padding: 26rpx 40rpx;
+	font-size: 30rpx;
+	line-height: 40rpx;
+	color: #666;
+}
+.chitchat .user .content::after{
+	position: absolute;
+	top: 10rpx;
+	
+	content: "";
+	border: 20rpx solid transparent;
+	
+}
+.chitchat .user.other .content::after{
+	left: -38rpx;
+	border-right-color: #fff;
+}
+.chitchat .user.me .content::after{
+right: -38rpx;
+border-left-color: #fff;
 }

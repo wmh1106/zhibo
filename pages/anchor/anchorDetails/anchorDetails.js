@@ -3,7 +3,7 @@
 Page({
 	goToEditorAnchor(){
 		wx.navigateTo({
-			url: '/pages/anchor/createTopic/createTopic'
+			url: '/pages/anchor/editorTopic/editorTopic'
 		})
 	}
 })

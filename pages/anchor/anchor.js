@@ -58,7 +58,6 @@ Page({
     },
     _apiGetLiveSetting() {
         getLiveSetting().then(res => {
-            console.log(res)
             wx.setStorageSync('live_bg', res.live_bg)
             wx.setStorageSync('live_desc', res.live_desc)
             wx.setStorageSync('live_title', res.live_title)

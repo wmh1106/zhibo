@@ -23,6 +23,10 @@ Page({
     onLoad: function(options) {
 		this._apiDetails(options.id)
 		this._apiHistoryAdd(options.userId)
+		this.setData({
+			id: options.id,
+			userId: options.userId,
+		})
     },
     onReady: function() {
 		
