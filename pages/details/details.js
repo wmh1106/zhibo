@@ -8,6 +8,8 @@ import {
 	historyAdd
 } from '../../api/history.js'
 
+import WxParse from '../../utils/wxParse/wxParse.js'
+
 Page({
     data: {
 		id:-1,
@@ -56,7 +58,14 @@ Page({
 		})
 	},
 	_apiDetails(id){
+		const _this = this
 		details(id).then(res => {
+			console.log(res.info.content)
+
+			const anchorInfo = '<div>我是HTML代码</div>'
+
+			WxParse.wxParse('anchorInfo', 'html', res.info.content, _this, 5)
+
 			this.setData({
 				list: res.datas,
 				info: res.info,

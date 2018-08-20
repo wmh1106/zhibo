@@ -1,3 +1,5 @@
+<import src="../../utils/wxParse/wxParse.wxml"/>
+
 <!-- 直播详情 -->
 <view class='livePlayer'>
     <!-- live,RTC -->
@@ -84,7 +86,7 @@
     <view class="item info" hidden="{{ !(currentTab===2) }}">
         <view class='title'>{{ info.title }}</view>
         <view class='content'>
-            {{ info.content }}
+			<template is="wxParse" data="{{wxParseData:anchorInfo.nodes}}"/>
         </view>
     </view>
 </view>

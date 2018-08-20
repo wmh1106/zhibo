@@ -67,6 +67,10 @@
     content: "\e651";
 }
 
+
+/* WxParse 样式 */
+@import "/utils/wxParse/wxParse.wxss";
+
 page {
     font-size: 32rpx;
     font-weight: normal;
