@@ -1,6 +1,11 @@
 import {
 	details
 } from '../../api/details.js'
+
+import {
+	wxPromise
+} from '../../utils/wxPromise.js'
+
 import {
 	live
 } from '../../api/live.js'
@@ -58,9 +63,9 @@ Page({
 		})
 	},
 	_apiDetails(id){
+
 		const _this = this
 		details(id).then(res => {
-			console.log(res.info.content)
 
 			const anchorInfo = '<div>我是HTML代码</div>'
 

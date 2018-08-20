@@ -1,6 +1,6 @@
 import {
 	getIndexList
-} from '../../../api/live.js'
+} from '../../../api/indexList.js'
 
 Page({
     data: {

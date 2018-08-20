@@ -2,23 +2,23 @@ import {
     http
 } from '../utils/http2.js'
 
-
 import {
     formatTime,
     compare
 } from '../utils/util.js'
 
-
-// 我的直播列表
-const getMyList = (phoneNumber) => {
+const getIndexList = (type, page) => {
 
     return http({
-        url: '/Article/liveArray',
+        url: '/Article/index',
         header: {
             accesstoken: wx.getStorageSync('access_token')
+        },
+        data: {
+            order: type,
+            page: page
         }
     }).then(res => {
-        // 处理数据
         const list = res.data.map(item => {
             let state = ''
             switch (item.stauts) {
@@ -44,11 +44,11 @@ const getMyList = (phoneNumber) => {
                 created: formatTime(item.created)
             }
         })
-        res.data = list
+        res.data = list;
         return res
     })
 }
 
 export {
-    getMyList
+    getIndexList
 }
