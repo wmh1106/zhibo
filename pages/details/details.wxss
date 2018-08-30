@@ -23,11 +23,21 @@ live-player{
 	width: 54rpx;
 	height: 54rpx;
 	line-height: 54rpx;
-	text-align: center;
+	
 	transform:translateY(-50%);
 	overflow: hidden;
 	border-radius: 50%;
 	background: rgba(255,255,255,.5);
+}
+
+.livePlayer .shareButton button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 54rpx;
+	height: 54rpx;
+	background: none;
+	border: none;
 }
 .livePlayer .shareButton i{
 	font-size: 30rpx;
@@ -78,11 +88,14 @@ live-player{
 }
 
 
-
+.detailsWrap{
+	width: 100%;
+	height: 697rpx;
+	margin-top:10rpx;
+}
 
 /* 选项卡 body- 主播 */
 .liveRome {
-	margin-top:10rpx;
     display: flex;
     align-items: center;
     height: 200rpx;
@@ -157,6 +170,7 @@ live-player{
 	justify-content: space-between;
 	align-items: center;
 	color: #999;
+	background: #fff;
 }
 .inpBox .inpText{
 	flex: 1;

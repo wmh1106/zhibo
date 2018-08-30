@@ -1,20 +1,20 @@
 <view class="anchorCover">
-    <image mode="aspectFill" src="/images/bg/img1.jpg"></image>
+    <image mode="aspectFill" src="{{bg}}"></image>
 </view>
 <view class="anchorHeader">
-    <view>2017苹果秋季新品发布会</view>
-    <view>2017-10-12 13:31:00 10人观看</view>
+    <view>{{topicInfo.live_title}}</view>
+    <view>{{time}} {{topicInfo.click}}人观看</view>
 </view>
 
 <view class="anchorInfo">
     <view class='title'>直播介绍</view>
-    <view>2017苹果秋季新品发布会于美国当地时间9月12日</view>
+    <view>{{topicInfo.live_desc}}</view>
 </view>
 
 <view class="anchorInfo">
     <view class="title">推流地址</view>
     <view class="address">
-        <view class="link">search/deail?ct=503316480&z=0&ipn=d&word=苹果发布</view>
+        <view class="link">{{topicInfo.tui}}</view>
         <view class="copyButton">
             <text>复制推流地址</text>
             <i class="iconfont i-copy"></i>
@@ -22,9 +22,13 @@
     </view>
 </view>
 
-
 <view class="controlButtonWrap">
-    <view bind:tap="goToEditorAnchor">
+    <view bind:tap="goToEditorAnchor" 
+		data-headimgurl="{{topicInfo.headimgurl}}"
+		data-desc="{{topicInfo.live_desc}}"
+		data-title="{{topicInfo.live_title}}"
+		data-bg="{{bg}}"
+	>
         <i class="iconfont i-editor"></i>
         <text>编辑话题</text>
     </view>

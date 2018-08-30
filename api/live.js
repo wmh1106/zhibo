@@ -25,11 +25,27 @@ const live = (userid) => {
         data: {
             userid
         }
-    }).then(res => res)
+    }).then(res => {
+		console.log(res)
+		return res
+	})
 
 }
 // 取消关注 /Collection/collDel 
+const liveDel = (userid) => {
+	return http({
+		url: '/Collection/collDel',
+		header: {
+			accesstoken: wx.getStorageSync('access_token')
+		},
+		data: {
+			userid
+		}
+	}).then(res => res)
+
+}
 export {
     live,
+	liveDel,
     likeListData
 }

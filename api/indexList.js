@@ -7,13 +7,15 @@ import {
     compare
 } from '../utils/util.js'
 
+
+// 推荐、最新、热点
 const getIndexList = (type, page) => {
 
     return http({
         url: '/Article/index',
-        header: {
-            accesstoken: wx.getStorageSync('access_token')
-        },
+        // header: {
+        //     accesstoken: wx.getStorageSync('access_token')
+        // },
         data: {
             order: type,
             page: page
@@ -49,6 +51,21 @@ const getIndexList = (type, page) => {
     })
 }
 
+// 轮播图片
+const getSwiperImage = () => {
+    return http({
+        url: '/Index/carousel'
+    }).then(res => res)
+}
+// 推荐直播列表
+const getIndexPutList = () => {
+    return http({
+        url: '/Index/putlive'
+    }).then(res => res)
+}
+
 export {
-    getIndexList
+    getIndexList,
+    getSwiperImage,
+    getIndexPutList
 }

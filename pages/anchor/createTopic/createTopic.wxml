@@ -7,18 +7,18 @@
 <view class='settingWrap'>
     <view class='settingItem' bind:tap="goToInfo" data-name="topic_title">
         <text> 本期话题</text>
-        <view>
+        <view class="go">
             <text>{{topicTitle !== '' ? '已填':'' }}</text>
-            <i class="iconfont i-go"></i>
+            <i class="iconfont i-right"></i>
         </view>
 
     </view>
 
     <view class='settingItem'  bind:tap="goToInfo" data-name="topic_content">
         <text> 直播介绍</text>
-        <view>
+        <view class="go">
             <text>{{topicContent !== '' ? '已填':'' }}</text>
-            <i class="iconfont i-go"></i>
+            <i class="iconfont i-right"></i>
         </view>
     </view>
 
@@ -26,9 +26,9 @@
         <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
             <view class="picker">
                 <text> 选择时间</text>
-                <view>
+                <view class="go">
                     {{stime}}
-                    <i class="iconfont i-go"></i>
+                    <i class="iconfont i-right"></i>
                 </view>
             </view>
         </picker>

@@ -8,24 +8,14 @@ import {
 
 // 1. 登陆 , 拿 code
 const getLogin = function() {
-
     const wxLogin = wxPromise(wx.login)
-
-    return wxLogin().then(res => {
-        if (res.code) {
-            return res
-        } else {
-            return new Error(res)
-        }
-    })
+    return wxLogin()
 }
 
 // 2. 获取用户信息
 const getUserInfo = function() {
-
     const wxUserInfo = wxPromise(wx.getUserInfo)
-    return wxUserInfo().then(res => res)
-
+    return wxUserInfo()
 }
 
 // 3. 发送服务端：微信用户授权 /Login
@@ -41,23 +31,14 @@ const userAgreeLoginApi = function(option) {
         }
     }).then(res => {
 
-        wx.setStorage({
-            key: "access_token",
-            data: res.access_token
+        wx.setStorageSync('access_token', res.access_token)
+        wx.setStorageSync('userInfo', {
+            avatar_url: res.avatar_url,
+            nickname: res.nickname,
+            mobile: res.mobile
         })
-        wx.setStorage({
-            key: "userInfo",
-            data: {
-                avatar_url: res.avatar_url,
-                nickname: res.nickname,
-                mobile: res.mobile
-            }
-        })
-
         return res
-
     })
-
 }
 
 // 组合上面1，2，3步骤，并返回出去
@@ -81,36 +62,25 @@ const login = function() {
 // 判断用户是否 授权 && 登录
 const isShowRegister = function() {
 
-    const checkSession = new Promise(function(resolve, reject) {
-        wx.checkSession({
-            success: (res) => {
-                resolve(false)
-            },
-            fail: (res) => {
-                resolve(true)
-            }
-        })
+    const checkSession = () => {
 
+        const checkSession = wxPromise(wx.checkSession)
 
+        return checkSession().then(res => true, error => false)
+
+    }
+
+    const getSetting = () => {
+        const getSetting = wxPromise(wx.getSetting)
+        return getSetting().then(res => {
+            return res.authSetting && res.authSetting['scope.userInfo'] ? true : false
+        }, error => false)
+    }
+    const isLoginState = Promise.all([checkSession(), getSetting()])
+	
+    return isLoginState.then(res => {
+        return res.every(e => e === true)
     })
-
-    const getSetting = new Promise(function(resolve, reject) {
-        wx.getSetting({
-            success: res => {
-                if (res.authSetting && res.authSetting['scope.userInfo']) {
-                    resolve(false)
-                } else {
-                    resolve(true)
-                }
-            },
-            fail: error => {
-                console.log('未授权', error)
-                resolve(true)
-            }
-        })
-    })
-
-    return Promise.all([checkSession, getSetting])
 }
 
 export {

@@ -52,6 +52,7 @@ Page({
 	_apiUploadImg(fileUrl) {
 
 		uploadImg(fileUrl).then(res => {
+			console.log(res)
 			this.setData({
 				imgUrl: res
 			})

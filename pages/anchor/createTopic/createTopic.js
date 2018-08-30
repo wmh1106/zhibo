@@ -3,7 +3,8 @@ import {
 } from '../../../api/uploadFile.js'
 
 import {
-    createTopic
+	topicCreate
+    
 } from '../../../api/createTopic.js'
 
 
@@ -18,7 +19,7 @@ Page({
 
     onShow() {
         this.setData({
-			topicTitle: wx.getStorageSync('topic_title'),
+            topicTitle: wx.getStorageSync('topic_title'),
             topicContent: wx.getStorageSync('topic_content'),
         })
     },
@@ -35,12 +36,12 @@ Page({
         })
     },
 
-	goToInfo(event){
-		const name = event.currentTarget.dataset.name
-		wx.navigateTo({
-			url: '../editorInfo/editorInfo?name=' + name
-		})
-	},
+    goToInfo(event) {
+        const name = event.currentTarget.dataset.name
+        wx.navigateTo({
+            url: '../editorInfo/editorInfo?name=' + name
+        })
+    },
 
     bindTimeChange: function(e) {
         console.log(e)
@@ -73,13 +74,13 @@ Page({
     },
 
     _apiCreateTopic(data) {
-        createTopic(data).then(res => {
-			wx.switchTab({
-				url: '/pages/anchor/anchor'
-			})
-		}).catch(error => {})
+		topicCreate(data).then(res => {
+            wx.switchTab({
+                url: '/pages/anchor/anchor'
+            })
+        }).catch(error => {})
     },
-	
+
     _apiUploadImg(fileUrl) {
 
         uploadImg(fileUrl).then(res => {

@@ -46,6 +46,10 @@ Page({
 				live_title: this.data.live_title,
 				live_url : this.data.live_url,
 				live_header: this.data.live_header
+			}).then(res=>{
+				wx.switchTab({
+					url: '/pages/anchor/anchor'
+				})
 			})
 
 			

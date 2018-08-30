@@ -1,21 +1,23 @@
 <view class='settingCoverBg' bind:tap="uploadFile">
-    <image wx:if="{{ tempFilePaths === ''}}" class='icon' src='/images/icon/photo.png' />
-    <text wx:if="{{ tempFilePaths === ''}}">设置直播封面</text>
-    <image mode="aspectFill" wx:if="{{ tempFilePaths !== ''}}" class='cover' src='{{tempFilePaths}}' />
+    <image wx:if="{{ bg === ''}}" class='icon' src='/images/icon/photo.png' />
+    <text wx:if="{{ bg === ''}}">设置直播封面</text>
+    <image mode="aspectFill" wx:if="{{ bg !== ''}}" class='cover' src='{{bg}}' />
 </view>
 
 <view class='settingWrap'>
     <view class='settingItem' bind:tap="goToTopicTitle">
         <text>本期话题</text>
-        <view>
-            <i class="iconfont i-go"></i>
+        <view class="go">
+            <text>{{topicContent !== '' ? '已填':'' }}</text>
+            <i class="iconfont i-right"></i>
         </view>
     </view>
 
     <view class='settingItem' bind:tap="goToTopicInfo">
         <text>直播介绍</text>
-        <view>
-            <i class="iconfont i-go"></i>
+        <view class="go">
+            <text>{{topicContent !== '' ? '已填':'' }}</text>
+            <i class="iconfont i-right"></i>
         </view>
     </view>
 
@@ -23,20 +25,21 @@
         <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
             <view class="picker">
                 <text> 选择时间</text>
-                <view>
-                    <i class="iconfont i-go"></i>
+                <view class="go">
+                    <text>{{topicContent !== '' ? '已填':'' }}</text>
+                    <i class="iconfont i-right"></i>
                 </view>
             </view>
         </picker>
     </view>
 
-	<view class='settingItem' bind:tap="goToTopicInfo">
+    <view class='settingItem' bind:tap="goToTopicInfo">
         <text>话题分享</text>
         <view>
-             <switch checked color="#4b9cf1" bindchange=""/>
+            <switch checked color="#4b9cf1" bindchange="" />
         </view>
     </view>
 
 </view>
 
-<view bind:tap="createTopic" class='createTopicButton'>创建</view>
+<view bind:tap="createTopic" class='createTopicButton'>保存</view>

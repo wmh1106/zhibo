@@ -1,7 +1,3 @@
 {
-    "enablePullDownRefresh": true,
-    "navigationBarTitleText": "个人中心",
-    "usingComponents": {
-        "cmp_register": "/component/register/index"
-    }
+    "navigationBarTitleText": "个人中心"
 }

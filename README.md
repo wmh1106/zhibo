@@ -12,3 +12,8 @@
 ## [插件：wxParse](https://github.com/icindy/wxParse)
 
 将Html/Markdown转换为微信小程序的可视化方案
+
+## 上拉加载、以 `user/history` 为例
+
+`onReachBottom`函数和`_apiHistoryList(page){}`
+

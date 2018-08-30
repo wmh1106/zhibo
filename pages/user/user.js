@@ -1,3 +1,7 @@
+import {
+	isShowRegister
+} from '../../api/login.js'
+
 Page({
     data: {
         imgUrl: {
@@ -7,22 +11,29 @@ Page({
             'iconPlugFlow': '/images/icon/icon_plug_flow.png',
             'iconBack': '/images/icon/icon_back.png'
         },
-		userHeadImg: '/images/img/demo.jpg',
-		nickName : '用户名称',
-		mobile: ''
+        userHeadImg: '/images/img/demo.jpg',
+        nickName: '用户名称',
+        mobile: ''
     },
-
-    onLoad: function(options) {},
-
-
-    onReady: function() {
-		const userInfo = wx.getStorageSync('userInfo')
-		this.setData({
-			userHeadImg: userInfo.avatar_url,
-			nickName: userInfo.nickname,
-			mobile: userInfo.mobile
+	onShow() {
+		// 判断是否登录
+		isShowRegister().then(res => {
+			if (!res) {
+				wx.navigateTo({
+					url: '/pages/login/login'
+				})
+			}else{
+				const userInfo = wx.getStorageSync('userInfo')
+				if (userInfo) {
+					this.setData({
+						userHeadImg: userInfo.avatar_url,
+						nickName: userInfo.nickname,
+						mobile: userInfo.mobile
+					})
+				}
+			}
 		})
-    },
+	},
 
     goToLive: function() {
         wx.navigateTo({
@@ -40,9 +51,9 @@ Page({
         })
     },
     goToPhone: function() {
-		if (this.data.mobile) {
+        if (this.data.mobile) {
             wx.navigateTo({
-				url: './changeBindPhone/changeBindPhone?phone=' + this.data.mobile
+                url: './changeBindPhone/changeBindPhone?phone=' + this.data.mobile
             })
         } else {
             wx.navigateTo({

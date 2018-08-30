@@ -1,5 +1,3 @@
-<import src="../../utils/wxParse/wxParse.wxml"/>
-
 <!-- 直播详情 -->
 <view class='livePlayer'>
     <!-- live,RTC -->
@@ -7,9 +5,13 @@
     </live-player>
     <view class='numberButton'>{{ info.click }}</view>
     <view class='shareButton'>
-        <i class="iconfont i-share"></i>
+        <button open-type="share" send-message-title="info.live_title">
+            <i class="iconfont i-share"></i>
+        </button>
     </view>
 </view>
+
+
 
 <view class='detailsTabHeader'>
     <view class='tab'>
@@ -29,64 +31,80 @@
     </view>
 </view>
 
-<view class='detailsTabBody'>
-    <view class="item" hidden="{{ !(currentTab===0) }}">
+<scroll-view class="detailsWrap" scroll-y="{{true}}" enable-back-to-top="{{true}}">
+    <view class='detailsTabBody'>
+        <view class="item" hidden="{{ !(currentTab===0) }}">
 
-        <view class='inpBox'>
-            <view class='iconButton'>
-                <i class="iconfont i-face"></i>
-            </view>
-            <view class='inpText'>
-                <input placeholder="请输入内容" value='' />
-            </view>
-            <view class='iconButton'>
-                <i class="iconfont i-push"></i>
-            </view>
-        </view>
-
-        <scroll-view class="chitchat">
-            <view class='user other'>
-                <view class='headerIcon'><image src="/images/img/head.jpg" /></view>
-				<view class="content">	
-					<text class='name'>e 直播</text>
-					<text class='text'>E融车贷：【满标公告】e融宝161223001</text>
-				</view>
-            </view>
-			 <view class='user me'>
-                <view class='headerIcon'><image src="/images/img/head.jpg" /></view>
-				<view class="content">	
-					<text class='name'>e 直播</text>
-					<text class='text'>E融车贷：【满标公告】e融宝161223001</text>
-				</view>
-            </view>
-        </scroll-view>
-    </view>
-    <view class="item host" hidden="{{ !(currentTab===1) }}">
-        <view bind:tap="goToRoom" class='liveRome' data-type_id="{{item.type_id}}" data-room_id='{{item.room_id}}' data-user_id='{{item.userId}}' data-created='{{item.created}}'>
-            <image src='{{ info.headimgurl }}' />
-            <view class='liveNews'>
-                <text>{{ info.live_title }}</text>
-                <text>{{ info.live_desc }}</text>
-            </view>
-        </view>
-
-        <block wx:if="{{list.length !== 0}}" wx:for="{{list}}" wx:key="item.id">
-            <cmp_list list="{{item}}">
-                <view slot="row1" class='row1'>
-                    <text>{{ item.state }}</text>
-                    <text>{{ item.click }} 观看</text>
+            <view class='inpBox'>
+                <view class='iconButton'>
+                    <i class="iconfont i-face"></i>
                 </view>
-                <view slot="row2">
-                    <text class='tiem'>开始时间：{{item.created}}</text>
+                <view class='inpText'>
+                    <input placeholder="请输入内容" value='' />
                 </view>
-            </cmp_list>
-        </block>
+                <view class='iconButton'>
+                    <i class="iconfont i-push"></i>
+                </view>
+            </view>
 
-    </view>
-    <view class="item info" hidden="{{ !(currentTab===2) }}">
-        <view class='title'>{{ info.title }}</view>
-        <view class='content'>
-			<template is="wxParse" data="{{wxParseData:anchorInfo.nodes}}"/>
+            <scroll-view class="chitchat">
+                <view class='user other'>
+                    <view class='headerIcon'>
+                        <image src="/images/img/head.jpg" />
+                    </view>
+                    <view class="content">
+                        <text class='name'>e 直播</text>
+                        <text class='text'>E融车贷：【满标公告】e融宝161223001</text>
+                    </view>
+                </view>
+                <view class='user me'>
+                    <view class='headerIcon'>
+                        <image src="/images/img/head.jpg" />
+                    </view>
+                    <view class="content">
+                        <text class='name'>e 直播</text>
+                        <text class='text'>E融车贷：【满标公告】e融宝161223001</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="item host" hidden="{{ !(currentTab===1) }}">
+            <view bind:tap="goToRoom" class='liveRome' data-type_id="{{item.type_id}}" data-room_id='{{item.room_id}}' data-user_id='{{item.userId}}' data-created='{{item.created}}'>
+                <image src='{{ info.headimgurl }}' />
+                <view class='liveNews'>
+                    <text>{{ info.live_title }}</text>
+                    <text>{{ info.live_desc }}</text>
+                </view>
+            </view>
+
+            <block wx:if="{{list.length !== 0}}" wx:for="{{list}}" wx:key="item.id">
+                <cmp_list list="{{item}}">
+                    <view slot="row1" class='row1'>
+                        <text>{{ item.state }}</text>
+                        <text>{{ item.click }} 观看</text>
+                    </view>
+                    <view slot="row2">
+                        <text class='tiem'>开始时间：{{item.created}}</text>
+                    </view>
+                </cmp_list>
+            </block>
+
+        </view>
+        <view class="item info" hidden="{{ !(currentTab===2) }}">
+            <view class='title'>{{ info.title }}</view>
+            <view class='content'>
+                <!-- <template is="wxParse" data="{{wxParseData:anchorInfo.nodes}}"/> -->
+
+
+
+                <cmp_wx_parse info="{{info.content}}"></cmp_wx_parse>
+
+                <!-- {{info.content}} -->
+
+                <!-- <template is="wxParse" data="{{wxParseData:anchorInfo.nodes}}"/> -->
+
+
+            </view>
         </view>
     </view>
-</view>
+</scroll-view>

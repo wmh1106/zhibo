@@ -19,7 +19,6 @@ const saveLiveSetting = ({
     live_url,
     live_header
 }) => {
-
     return http({
         url: '/Users/toSetLive',
         header: {

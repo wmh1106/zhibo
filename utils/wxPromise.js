@@ -3,21 +3,21 @@
  * @params fn {Function} 小程序原始API，如wx.login
  */
 const wxPromise = (fn) => {
-	return function (obj = {}) {
-		return new Promise((resolve, reject) => {
-			obj.success = function (res) {
-				resolve(res)
-			}
+    return (obj = {}) => {
+        return new Promise((resolve, reject) => {
+            obj.success = function(res) {
+                return resolve(res)
+            }
 
-			obj.fail = function (res) {
-				reject(res)
-			}
+            obj.fail = function(res) {
+				return reject(res)
+            }
 
-			fn(obj)
-		})
-	}
+            fn(obj)
+        })
+    }
 }
 
 export {
-	wxPromise
+    wxPromise
 }

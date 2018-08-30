@@ -1,6 +1,11 @@
 import {
-    http
-} from '../../utils/http2.js'
+    getSwiperImage,
+    getIndexPutList
+} from '../../api/indexList.js'
+
+import {
+	isShowRegister
+} from '../../api/login.js'
 
 Page({
     data: {
@@ -12,13 +17,42 @@ Page({
         duration: 1000,
         imgUrls: []
     },
-    onReady() {
-        this._getSwiperImage()
-        this._getIndexPutList()
-    },
-    onPullDownRefresh(res) {
-        this._getSwiperImage()
-        this._getIndexPutList()
+	onLoad(){
+		getIndexPutList().then(res => {
+			this.setData({
+				putlist: res
+			})
+		})
+
+		getSwiperImage().then(res => {
+			this.setData({
+				imgUrls: res
+			})
+		})
+	},
+	onShow(){
+		// 判断是否登录
+		isShowRegister().then(res => {
+			if(!res){
+				wx.navigateTo({
+					url: '/pages/login/login'
+				})
+			}
+		})
+	},
+    onPullDownRefresh() {
+        getIndexPutList().then(res => {
+            this.setData({
+                putlist: res
+            })
+        })
+
+        getSwiperImage().then(res => {
+            this.setData({
+                imgUrls: res
+            })
+        })
+
     },
     goToSearchPage() {
         wx.navigateTo({
@@ -26,34 +60,16 @@ Page({
         })
     },
     goToList(event) {
+        const type = event.currentTarget.dataset.type
         wx.navigateTo({
-            url: './list/list?order=' + event.currentTarget.dataset.type
+            url: './list/list?order=' + type
         })
     },
     goToDetails(event) {
+        const id = event.currentTarget.dataset.id
+        const userid = event.currentTarget.dataset.userid
         wx.navigateTo({
-            url: '/pages/details/details?id=' + event.currentTarget.dataset.id + '&userId=' + event.currentTarget.dataset.userid
+            url: '/pages/details/details?id=' + id + '&userId=' + userid
         })
     },
-    // 轮播图片
-    _getSwiperImage() {
-        http({
-            url: '/Index/carousel'
-        }).then(res => {
-            this.setData({
-                imgUrls: res
-            })
-        })
-    },
-    // 推荐直播列表
-    _getIndexPutList() {
-        http({
-                url: '/Index/putlive'
-            })
-            .then(res => {
-                this.setData({
-                    putlist: res
-                })
-            })
-    }
 })

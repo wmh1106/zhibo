@@ -4,7 +4,7 @@ import {
 
 
 // 创建话题 
-const createTopic = ({ title, desc, thumb, stime}) => {
+const topicCreate = ({ title, desc, thumb, stime}) => {
     return http({
         url: '/Article/liveAdd',
         header: {
@@ -17,21 +17,38 @@ const createTopic = ({ title, desc, thumb, stime}) => {
 }
 
 // 修改话题
-const editorTopic = () => {
+const topicEditor = (id) => {
 
     return http({
-        url: '/Article/liveAdd',
+		url: '/Article/liveEdit',
         header: {
             accesstoken: wx.getStorageSync('access_token')
         },
         data: {
-			
+			id
         }
     }).then(res => res)
 
 }
 
+// 获取话题详情
+const topicDetails = (id) => {
+	return http({
+		url: '/Article/liveDetails',
+		header: {
+			accesstoken: wx.getStorageSync('access_token')
+		},
+		data: {
+			id
+		}
+	}).then(res => res)
+
+}
+
+
+
 export {
-    createTopic,
-    editorTopic
+    topicCreate,
+    topicEditor,
+	topicDetails
 }

@@ -13,14 +13,16 @@ const getCode = (phoneNumber) => {
         data: {
             mobile: phoneNumber
         }
-    }).then(res => res)
+    }).then(res => {
+		return true
+	})
 
 }
 
 
 // 我的 - 手机 - 绑定手机
-const bindPhone = (sUserName, sVerCode) => {
-
+const bindPhone = (sUserName, sVerCode, CodeID) => {
+	
     return http({
         url: '/Users/toBindTel',
         header: {
@@ -28,7 +30,8 @@ const bindPhone = (sUserName, sVerCode) => {
         },
         data: {
             sUserName,
-            sVerCode
+            sVerCode,
+			CodeID
         }
     }).then(res => res)
 

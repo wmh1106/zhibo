@@ -34,12 +34,14 @@
 .settingWrap .settingItem > text{
 	color: #666;
 }
-.settingWrap .settingItem > view:nth-of-type(1) {
+.settingWrap .settingItem .go{
+	flex: 1;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 }
 
-.settingWrap .settingItem i{
+.settingWrap .settingItem .go i{
 	flex-shrink: 1;
 	margin:0 20rpx;
 	color: #999;

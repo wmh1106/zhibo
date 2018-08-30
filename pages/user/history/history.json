@@ -1,6 +1,5 @@
 {
     "navigationBarTitleText": "历史浏览",
-	"enablePullDownRefresh": true,
 	"usingComponents": {
 		"cmp_list": "/component/list/index"
 	}

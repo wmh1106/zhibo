@@ -40,6 +40,9 @@ const http = ({
 	data
 }) => {
 
+	wx.showLoading({
+		title:'请求中...',
+	})
 	return myRequest({
 		url: host + url,
 		data: data,
@@ -49,13 +52,13 @@ const http = ({
 		}
 	}).then(res => {
 		// 先判断小程序返回的状态
+		wx.hideLoading()
 		const {
 			statusCode,
 			data,
 			errMsg,
 			header
 		} = res
-
 		if (statusCode.toString().startsWith('2') && data.code === 0) {
 			return data.data
 		} else {
@@ -64,11 +67,12 @@ const http = ({
 			} else {
 				_showError('-1')
 			}
-			return new Error("请求失败，错误码：" + data.code)
+			return Promise.reject(new Error("请求失败，错误码：" + data.code))
 		}
 	}).catch(error => {
 		let errorCode = -1;
 		_showError(errorCode)
+		return Promise.reject(error)
 	})
 }
 export {

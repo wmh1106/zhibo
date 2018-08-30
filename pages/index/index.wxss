@@ -46,17 +46,12 @@
     border-radius: 28rpx;
     background: #fff;
     padding: 0 20rpx;
+    color: #c8c8c8;
 }
 
-.header .search image {
-    width: 28rpx;
-    height: 28rpx;
-    margin-right: 5rpx;
-}
 
 .header .search text {
     font-size: 26rpx;
-    color: #c8c8c8;
 }
 
 /* tab 内容 */
@@ -155,9 +150,9 @@
     font-size: 22rpx;
     color: #999;
     margin-bottom: 30rpx;
-    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+	display: block;
 }

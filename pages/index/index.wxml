@@ -1,4 +1,3 @@
-<cmp_register></cmp_register>
 
 <!-- 按钮 -->
 <view class='header'>
@@ -17,7 +16,7 @@
         </view>
     </view>
     <view class='search' bindtap='goToSearchPage'>
-        <image src='/images/icon/search.png' class='indexnavright_inputssimg' mode='widthFix'></image>
+		<i class="iconfont i-search"></i>
         <text>苹果发布会</text>
     </view>
 </view>
@@ -41,14 +40,14 @@
             <text>推荐直播</text>
         </view>
         <view class='recommendMore' bind:tap="goToList" data-type="put">
-			<text>更多</text>
-			<i class="iconfont i-go"></i>
-		</view>
+            <text>更多</text>
+            <i class="iconfont i-go"></i>
+        </view>
     </view>
 
     <view class='recommendList'>
         <block wx:for="{{putlist}}" wx:key="{{item.id}}">
-            <view class='listBox' data-userId="{{item.userId}}" data-id="{{item.id}}" bind:tap="goToDetails">
+            <view class='listBox' data-userid="{{item.userId}}" data-id="{{item.id}}" bind:tap="goToDetails">
                 <view class='showImgWrap'>
                     <image src='{{item.thumb}}' class='showImg' />
                     <view class='watch'>
@@ -57,7 +56,7 @@
                     </view>
                 </view>
                 <view class='name'>{{item.title}}</view>
-                <view class='other'>{{item.content}}</view>
+                <view class='other'>{{item.description}}</view>
             </view>
         </block>
     </view>

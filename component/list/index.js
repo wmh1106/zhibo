@@ -15,9 +15,15 @@ Component({
     },
 	methods:{
 		goToDetails(event) {
+
+			console.log(this.data.list)
+
 			console.log(event)
+
+			const id = event.currentTarget.dataset.id
+			const userid = event.currentTarget.dataset.userid
 			wx.navigateTo({
-				url: '/pages/details/details?id=' + event.currentTarget.dataset.id + '&userId=' + event.currentTarget.dataset.userid
+				url: '/pages/details/details?id=' + id + '&userId=' + userid
 			})
 		}
 	}

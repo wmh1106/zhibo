@@ -2,6 +2,8 @@ import {
 	getCode, bindPhone
 } from '../../../api/phone.js'
 
+const re = /^[1][3,4,5,7,8][0-9]{9}$/
+
 Page({
     data: {
         codeText: '获取验证码',
@@ -9,7 +11,8 @@ Page({
         countDown: 120,
         phoneInfo: {
             number: '',
-            code: ''
+            code: '',
+			codeId:-1
         }
     },
 
@@ -31,14 +34,23 @@ Page({
 	},
 
 	handleBindPhone() {
-		this._apiBindPhone(this.data.phoneInfo.number, this.data.phoneInfo.code)
+		this._apiBindPhone(this.data.phoneInfo.number, this.data.phoneInfo.code, this.data.phoneInfo.codeId)
     },
 
     handleGetCode() {
-		this._apiGetCode()
+		this._apiGetCode(this.data.phoneInfo.number)
     },
 
-    _apiGetCode() {
+	_apiGetCode(phoneNumber) {
+
+		if (!re.test(phoneNumber)) {
+			wx.showToast({
+				title: '手机号不正确',
+				icon: 'none',
+				duration: 2000
+			})
+			return false
+		}
 
 		if (this.data.isShowCountDown) return false
 
@@ -62,18 +74,42 @@ Page({
 			})
 		}, 1000)
 		
-        getCode(this.data.phoneInfo.number)
+		getCode(phoneNumber)
             .then(res => {
-				
-            }).catch(error => {
-
-            })
-
+				console.log(res)
+				this.setData({
+					phoneInfo: {
+						...this.data.phoneInfo,
+						codeId: res
+					}
+				})
+            }).catch(error=>{
+				console.log(error)
+			})
     },
 
-	_apiBindPhone(phoneNumber,code) {
-		if (phoneNumber && code ){
-			bindPhone(phoneNumber, code)
+	_apiBindPhone(phoneNumber, code, codeId) {
+		
+		if (!re.test(phoneNumber)) {
+			wx.showToast({
+				title: '手机号不正确',
+				icon: 'none',
+				duration: 2000
+			})
+			return false
+		}
+
+		if (phoneNumber && code){
+			bindPhone(phoneNumber, code, codeId).then(res=>{
+				const userInfo = wx.getStorageSync('userInfo')
+				wx.setStorageSync('userInfo', {
+					...userInfo,
+					'mobile': this.data.phoneInfo.number
+				})
+				wx.switchTab({
+					url:'/pages/user/user'
+				})
+			})
 		}else{
 			wx.showToast({
 				title: '手机号或验证码为空',
@@ -81,6 +117,5 @@ Page({
 				duration: 2000
 			})
 		}
-		
     }
 })

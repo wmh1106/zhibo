@@ -1,5 +1,8 @@
-<block wx:for="{{list}}">
-    <view bind:tap="goToRoom" class='liveRome' data-type_id="{{item.type_id}}" data-room_id='{{item.room_id}}' data-user_id='{{item.userId}}' data-created='{{item.created}}'>
+<block wx:for="{{list}}" wx:key="{{item.room_id}}">
+    <view bind:tap="goToRoom" class='liveRome' 
+	data-id="{{item.id}}" 
+	data-room_id='{{item.room_id}}' 
+	data-user_id='{{item.userId}}'>
         <image src='{{item.headimgurl}}' />
         <view class='liveNews'>
             <text>{{item.live_title}}</text>

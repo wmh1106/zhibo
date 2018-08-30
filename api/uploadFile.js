@@ -22,7 +22,7 @@ const uploadImg = (fileUrl) => {
         if (res.statusCode.toString().startsWith('2')) {
             const result = JSON.parse(res.data)
             if (result.code === 0) {
-                return resolve(result.data)
+                return result.data
             } else {
                 wx.showToast({
                     title: result.msg,

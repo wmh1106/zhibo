@@ -32,6 +32,7 @@
 }
 
 .searchResultList .resultTextWrap {
+	flex: 1;
     height: 160rpx;
     display: flex;
     flex-direction: column;
@@ -43,7 +44,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 450rpx;
     font-size: 26rpx;
     color: #999;
 }

@@ -1,8 +1,5 @@
-<cmp_register></cmp_register>
-
-
 <view class='centerLogin'>
-    <image src='{{userHeadImg}}' class='myIcon'></image>
+    <view class='myIcon'><image src='{{userHeadImg}}' ></image></view>
     <view class='myName'>{{nickName}}</view>
 </view>
 

@@ -1,5 +1,5 @@
 {
-		"navigationBarTitleText": "搜索",
+	"navigationBarTitleText": "搜索",
 	"usingComponents": {
 		"cmp_list": "/component/list/index"
 	}

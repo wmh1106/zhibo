@@ -11,6 +11,13 @@
     width: 200rpx;
     height: 200rpx;
     border-radius: 50%;
+	background-color: #efefef;
+	overflow: hidden;
+}
+.centerLogin .myIcon image{
+	width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
 }
 
 .centerLogin .myName {
