@@ -1,4 +1,3 @@
-
 <view class='searchResultList' bindtap="goToDetails" data-id="{{list.id}}" data-userid="{{list.userId}}">
     <view class='resultImgWrap'>
         <image class='show' src="{{list.thumb}}" />

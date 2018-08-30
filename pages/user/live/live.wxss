@@ -9,7 +9,7 @@
 
 .liveRome image {
     display: block;
-    flex-shrink: 1;
+    flex-shrink: 0;
     height: 140rpx;
     width: 140rpx;
     border-radius: 50%;

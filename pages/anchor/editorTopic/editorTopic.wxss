@@ -42,7 +42,7 @@
 }
 
 .settingWrap .settingItem .go i{
-	flex-shrink: 1;
+	flex-shrink: 0;
 	margin:0 20rpx;
 	color: #999;
 }

@@ -106,7 +106,7 @@ live-player{
 
 .liveRome image {
     display: block;
-    flex-shrink: 1;
+    flex-shrink: 0;
     height: 140rpx;
     width: 140rpx;
     border-radius: 50%;
@@ -176,7 +176,7 @@ live-player{
 	flex: 1;
 }
 .inpBox .iconButton{
-	flex-shrink: 1;
+	flex-shrink: 0;
 	font-size: 70rpx;
 	padding:0 20rpx;
 }
