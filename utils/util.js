@@ -8,7 +8,7 @@ const formatTime = num => {
 	let minute = date.getMinutes()
 	let second = date.getSeconds()
 
-	return `${formatNumber(year)}/${formatNumber(month)}/${formatNumber(day)} ${formatNumber(hour)}:${formatNumber(minute)}`
+	return `${formatNumber(year)}-${formatNumber(month)}-${formatNumber(day)} ${formatNumber(hour)}:${formatNumber(minute)}`
 }
 
 const formatNumber = n => {

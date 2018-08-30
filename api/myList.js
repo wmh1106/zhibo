@@ -41,7 +41,7 @@ const getMyList = (phoneNumber) => {
             return {
                 ...item,
                 state,
-                created: formatTime(item.created)
+				created: formatTime(item.stime)
             }
         })
         res.data = list

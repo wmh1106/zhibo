@@ -28,6 +28,7 @@
 		data-desc="{{topicInfo.live_desc}}"
 		data-title="{{topicInfo.live_title}}"
 		data-bg="{{bg}}"
+		data-time="{{time}}"
 	>
         <i class="iconfont i-editor"></i>
         <text>编辑话题</text>

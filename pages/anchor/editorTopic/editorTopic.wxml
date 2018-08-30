@@ -5,28 +5,39 @@
 </view>
 
 <view class='settingWrap'>
-    <view class='settingItem' bind:tap="goToTopicTitle">
+    <view class='settingItem' bind:tap="goToTopicTitle" data-name="{{title}}">
         <text>本期话题</text>
         <view class="go">
-            <text>{{topicContent !== '' ? '已填':'' }}</text>
+            <text>{{title !== '' ? '已填':'' }}</text>
             <i class="iconfont i-right"></i>
         </view>
     </view>
 
-    <view class='settingItem' bind:tap="goToTopicInfo">
+    <view class='settingItem' bind:tap="goToTopicInfo" data-name="{{desc}}">
         <text>直播介绍</text>
         <view class="go">
-            <text>{{topicContent !== '' ? '已填':'' }}</text>
+            <text>{{desc !== '' ? '已填':'' }}</text>
             <i class="iconfont i-right"></i>
         </view>
     </view>
 
+	<view class='settingItem'>
+        <picker mode="date" start="{{startDay}}" value="{{sday}}" bindchange="bindDayChange">
+            <view class="picker">
+                <text> 选择日期</text>
+                <view class="go">
+                    {{sday}}
+                    <i class="iconfont i-right"></i>
+                </view>
+            </view>
+        </picker>
+    </view>
     <view class='settingItem'>
         <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
             <view class="picker">
                 <text> 选择时间</text>
                 <view class="go">
-                    <text>{{topicContent !== '' ? '已填':'' }}</text>
+                    {{stime}}
                     <i class="iconfont i-right"></i>
                 </view>
             </view>
@@ -42,4 +53,4 @@
 
 </view>
 
-<view bind:tap="createTopic" class='createTopicButton'>保存</view>
+<view bind:tap="saveTopic" class='createTopicButton'>保存</view>

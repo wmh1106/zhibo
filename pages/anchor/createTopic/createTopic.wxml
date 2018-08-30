@@ -21,7 +21,17 @@
             <i class="iconfont i-right"></i>
         </view>
     </view>
-
+	<view class='settingItem'>
+        <picker mode="date" start="{{startDay}}" value="{{sDay}}" bindchange="bindDayChange">
+            <view class="picker">
+                <text> 选择日期</text>
+                <view class="go">
+                    {{sDay}}
+                    <i class="iconfont i-right"></i>
+                </view>
+            </view>
+        </picker>
+    </view>
     <view class='settingItem'>
         <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
             <view class="picker">
